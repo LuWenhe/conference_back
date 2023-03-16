@@ -21,7 +21,7 @@ public class HeaderImgUpload {
     //静态资源路径
     private static final String FILE_PATH_PREFIX = "static/images";
 
-    private static final String FILE_PATH_PREFIX_READ = "images";
+    private static final String FILE_PATH_PREFIX_READ = "image";
 
     //文件路径后缀
     private static final String FILE_PATH_SUFFIX = ".png";
@@ -29,35 +29,43 @@ public class HeaderImgUpload {
     // 默认的图片后缀
     private static final List<String> FILE_TYPE = Arrays.asList("image/jpeg", "image/png");
 
-    public static String headPortraitUpload(MultipartFile file) throws IOException, HintException {
+    private static final String FILE_DIRECTORY = "D:/Projects/ActualProjects/conference/image";
 
-        System.out.println(file.getContentType());
+    public static String headPortraitUpload(MultipartFile file) throws IOException, HintException {
         if (!FILE_TYPE.contains(file.getContentType())) {
-            throw new HintException("上传的文件类型只能是:" + FILE_TYPE.toString());
+            throw new HintException("上传的文件类型只能是:" + FILE_TYPE);
         }
 
-        String path = System.getProperty("user.dir");
-        File upload = new File(path, FILE_PATH_PREFIX);
+//        String path = System.getProperty("user.dir");
+        File upload = new File(FILE_DIRECTORY);
 
-        log.info("目录upload: " + upload.toString());
+        log.info("目录upload: " + upload);
+
         if (!upload.exists()) {
-            log.info("目录不存在，开始创建: " + upload.toString());
+            log.info("目录不存在，开始创建: " + upload);
             if (!upload.mkdirs()) {
                 throw new HintException("文件上传失败");
             }
         }
 
-        File file1;
         UUID fileName = UUID.randomUUID();
         if (!file.isEmpty()) {
             log.info("开始保存");
-            //保存到文件服务器
-            file1 = new File(upload, fileName + FILE_PATH_SUFFIX);
+            File file1 = new File(upload, fileName + FILE_PATH_SUFFIX);
+            // 保存文件
             file.transferTo(file1);
+            log.info("保存结束");
         } else {
             throw new NullPointerException("文件不能为空");
         }
-        return FILE_PATH_PREFIX_READ + File.separator + fileName + FILE_PATH_SUFFIX;
+
+        return FILE_PATH_PREFIX_READ + "/" + fileName + FILE_PATH_SUFFIX;
+    }
+
+    public static boolean ifExistsPicture(MultipartFile multipartFile) {
+        String filename = multipartFile.getOriginalFilename();
+        File file = new File(FILE_DIRECTORY, filename);
+        return file.exists();
     }
 
     /*public static String getPortraitPath(String headPortraitId) {

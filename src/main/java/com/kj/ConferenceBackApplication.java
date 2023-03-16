@@ -10,10 +10,10 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @MapperScan("com.kj.mapper")
 @EnableTransactionManagement
 @EnableAspectJAutoProxy
-public class SchoolOfJournalismAndCommunicationWebsiteApplication {
+public class ConferenceBackApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(SchoolOfJournalismAndCommunicationWebsiteApplication.class, args);
+        SpringApplication.run(ConferenceBackApplication.class, args);
     }
 
 }

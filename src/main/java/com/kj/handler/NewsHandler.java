@@ -3,6 +3,7 @@ package com.kj.handler;
 import com.kj.dto.NewsAddDTO;
 import com.kj.dto.NewsQueryDTO;
 import com.kj.dto.NewsUpdateDTO;
+import com.kj.module.HeaderImgUpload;
 import com.kj.permission.annotation.GeneralAdmin;
 import com.kj.service.NewsService;
 import com.kj.vo.Result;
@@ -40,6 +41,34 @@ public class NewsHandler {
     public Result addNews(MultipartFile pictureFile, NewsAddVO vo) throws IOException {
         NewsAddDTO newsAddDTO = modelMapper.map(vo, NewsAddDTO.class);
         newsAddDTO.setPictureFile(pictureFile);
+        return new Result().ok().data(newsService.saveNews(newsAddDTO));
+    }
+
+    @GeneralAdmin
+    @ApiOperation(value = "添加图片")
+    @PostMapping(value = "/addImage")
+    public Result addImage(@RequestParam("image") MultipartFile pictureFile)
+            throws IOException {
+        NewsAddDTO newsAddDTO = new NewsAddDTO();
+        newsAddDTO.setPictureFile(pictureFile);
+        String picturePath = "";
+
+        // 如果图片存在, 则直接返回图片
+        if (HeaderImgUpload.ifExistsPicture(pictureFile)) {
+            picturePath = "http://localhost:8084/image/" + pictureFile.getOriginalFilename();
+        } else {
+            String savePath = newsService.saveImage(newsAddDTO);
+            picturePath = "http://localhost:8084/" + savePath;
+        }
+
+        return new Result().ok().data(picturePath);
+    }
+
+    @GeneralAdmin
+    @ApiOperation(value = "添加新闻内容")
+    @PostMapping(value = "/addContent")
+    public Result addContent(NewsAddVO vo) throws IOException {
+        NewsAddDTO newsAddDTO = modelMapper.map(vo, NewsAddDTO.class);
         return new Result().ok().data(newsService.saveNews(newsAddDTO));
     }
 

@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.kj</groupId>
-    <artifactId>school-of-journalism-and-communication-website</artifactId>
+    <artifactId>conference_back</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>school-of-journalism-and-communication-website</name>
     <description>新闻与传播学院网站</description>

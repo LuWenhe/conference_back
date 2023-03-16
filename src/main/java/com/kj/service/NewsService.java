@@ -37,6 +37,11 @@ public interface NewsService extends IService<News> {
     boolean saveNews(NewsAddDTO dto) throws IOException;
 
     /**
+     * 添加markdown中的图片
+     */
+    String saveImage(NewsAddDTO dto) throws IOException;
+
+    /**
      * 删除新闻根据id
      */
     boolean removeNews(Integer id);
@@ -60,4 +65,5 @@ public interface NewsService extends IService<News> {
      * 获取新闻根据 id
      */
     NewsQueryDTO getNewsById(Integer id);
+
 }

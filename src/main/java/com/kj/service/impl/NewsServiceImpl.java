@@ -40,12 +40,14 @@ public class NewsServiceImpl extends ServiceImpl<NewsMapper, News> implements Ne
         if (nonentityNewsCategory(dto.getNewsCategoryId())) {
             throw new HintException("此新闻类别不存在");
         }
-        Integer newCategoryId = dto.getNewsCategoryId();
-        NewsCategory newsCategory = newsCategoryMapper.selectOne(new QueryWrapper<NewsCategory>().select(NewsCategoryService.DISPLAY_CONTENT).eq(NewsCategoryService.ID, newCategoryId));
+
+        NewsCategory newsCategory = newsCategoryMapper.selectOne(new QueryWrapper<NewsCategory>()
+                .select(NewsCategoryService.DISPLAY_CONTENT).eq(NewsCategoryService.ID, dto.getNewsCategoryId()));
+
         // 小标题为新闻类型时，该标题下只能存储一篇新闻
         if (newsCategory.getDisplayContent() == DisplayContent.NEWS) {
             // 检查该标题下是否存在新闻
-            int count = count(new QueryWrapper<News>().eq(NEWS_CATEGORY_ID, newCategoryId));
+            int count = count(new QueryWrapper<News>().eq(NEWS_CATEGORY_ID, dto.getNewsCategoryId()));
             if (count >= 1) {
                 throw new HintException("该类别下只能存在一篇新闻");
             }
@@ -56,6 +58,13 @@ public class NewsServiceImpl extends ServiceImpl<NewsMapper, News> implements Ne
             dto.setPicturePath(s);
         }
         return save(modelMapper.map(dto, News.class));
+    }
+
+    @Override
+    public String saveImage(NewsAddDTO dto) throws IOException {
+        String picturePath = HeaderImgUpload.headPortraitUpload(dto.getPictureFile());
+        dto.setPicturePath(picturePath);
+        return picturePath;
     }
 
     @Override

@@ -62,7 +62,8 @@ public class NewsCategoryServiceImpl extends ServiceImpl<NewsCategoryMapper, New
 
     @Override
     public List<NewsCategoryDTO> queryNewCategoryByNewsTypeDd(Integer newsTypeId) {
-        List<NewsCategory> list = list(new QueryWrapper<NewsCategory>().select(ID, NAME, DISPLAY_CONTENT).eq(NEWS_TYPE_ID, newsTypeId));
+        List<NewsCategory> list = list(new QueryWrapper<NewsCategory>().select(ID, NAME, DISPLAY_CONTENT)
+                .eq(NEWS_TYPE_ID, newsTypeId));
         return modelMapper.map(list, new TypeToken<List<NewsCategoryDTO>>(){}.getType());
     }
 
