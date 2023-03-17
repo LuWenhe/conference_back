@@ -6,10 +6,6 @@ import org.modelmapper.spi.MatchingStrategy;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-/**
- * @author 破晓
- * @date 2022-01-09 19:21
- */
 @Configuration
 public class ModelMapperConfig {
 
@@ -22,4 +18,5 @@ public class ModelMapperConfig {
         modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
         return modelMapper;
     }
+
 }

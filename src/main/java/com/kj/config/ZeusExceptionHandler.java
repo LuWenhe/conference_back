@@ -8,10 +8,6 @@ import org.apache.shiro.authc.UnknownAccountException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
-/**
- * @author 破晓
- * @date 2022-01-09 17:45
- */
 @RestControllerAdvice
 public class ZeusExceptionHandler {
 
@@ -37,4 +33,5 @@ public class ZeusExceptionHandler {
     public Result PermissionException(Exception e) {
         return new Result().insufficientPermissions(e.getMessage());
     }
+
 }

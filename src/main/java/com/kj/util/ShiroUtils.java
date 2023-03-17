@@ -12,4 +12,5 @@ public class ShiroUtils {
     public static Principal getPrincipal() {
         return (Principal) SecurityUtils.getSubject().getPrincipal();
     }
+
 }

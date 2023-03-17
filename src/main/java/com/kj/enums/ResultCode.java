@@ -22,4 +22,5 @@ public enum ResultCode {
     private Boolean success;
 
     private String msg;
+
 }

@@ -1,7 +1,6 @@
 package com.kj.handler;
 
-import com.kj.module.HeaderImgUpload;
-import com.kj.permission.annotation.GeneralAdmin;
+import com.kj.util.ImgUtils;
 import com.kj.vo.Result;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -27,7 +26,7 @@ public class OperationHandler {
     @ApiOperation(value = "单文件上传")
     @PostMapping("/uploading")
     public Result filesUpload(MultipartFile file) throws IOException {
-        String s = HeaderImgUpload.headPortraitUpload(file);
+        String s = ImgUtils.uploadImage(file);
         return new Result().ok().data(s);
     }
 

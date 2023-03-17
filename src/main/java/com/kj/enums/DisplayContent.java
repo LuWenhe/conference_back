@@ -7,9 +7,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 /**
- * @author 破晓
- * @date 2022-01-09 15:24
- *
  * 小标题下展示的类型
  */
 @AllArgsConstructor
@@ -26,4 +23,5 @@ public enum DisplayContent {
 
     @JsonValue
     private String display;
+
 }

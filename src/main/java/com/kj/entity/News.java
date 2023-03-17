@@ -10,9 +10,6 @@ import lombok.NoArgsConstructor;
 import java.util.Date;
 
 /**
- * @author 破晓
- * @date 2022-01-09 15:36
- *
  * 新闻主体
  */
 @TableName("news")
@@ -23,38 +20,15 @@ public class News {
 
     @TableId(type = IdType.AUTO)
     private Integer id;
-
-    /**
-     * 展示图片路径
-     */
-    private String picturePath;
-
-    /**
-     * 标题
-     */
-    private String title;
-
-    /**
-     * 发布时间
-     */
-    private Date releaseTime;
-
-    /**
-     * 点击率
-     */
-    private Integer hits;
-
-    /**
-     * 内容
-     */
-    private String content;
-
-    /**
-     * 文章所属类别id
-     */
-    private Integer newsCategoryId;
-
+    private String picturePath;        // 图片路径
+    private String title;              // 标题
+    private Date releaseTime;          // 新闻发布时间
+    private Integer hits;              // 点击率
+    private String content;            // 内容
+    private String mdContent;
+    private String htmlContent;
+    private Integer newsCategoryId;    // 文章所属类别
     private Date createTime;
-
     private Date updateTime;
+
 }

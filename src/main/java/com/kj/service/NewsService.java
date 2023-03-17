@@ -42,6 +42,11 @@ public interface NewsService extends IService<News> {
     String saveImage(NewsAddDTO dto) throws IOException;
 
     /**
+     * 删除markdown中的图片
+     */
+    boolean deleteImage(NewsAddDTO dto) throws IOException;
+
+    /**
      * 删除新闻根据id
      */
     boolean removeNews(Integer id);

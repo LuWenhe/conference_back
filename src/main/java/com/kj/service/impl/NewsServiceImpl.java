@@ -11,7 +11,7 @@ import com.kj.enums.DisplayContent;
 import com.kj.exception.HintException;
 import com.kj.mapper.NewsCategoryMapper;
 import com.kj.mapper.NewsMapper;
-import com.kj.module.HeaderImgUpload;
+import com.kj.util.ImgUtils;
 import com.kj.service.NewsCategoryService;
 import com.kj.service.NewsService;
 import org.modelmapper.ModelMapper;
@@ -41,30 +41,39 @@ public class NewsServiceImpl extends ServiceImpl<NewsMapper, News> implements Ne
             throw new HintException("此新闻类别不存在");
         }
 
+        // 获取新闻类别
         NewsCategory newsCategory = newsCategoryMapper.selectOne(new QueryWrapper<NewsCategory>()
                 .select(NewsCategoryService.DISPLAY_CONTENT).eq(NewsCategoryService.ID, dto.getNewsCategoryId()));
 
-        // 小标题为新闻类型时，该标题下只能存储一篇新闻
+        // 如果新闻类型是新闻，则标题下只能存储一篇新闻
         if (newsCategory.getDisplayContent() == DisplayContent.NEWS) {
             // 检查该标题下是否存在新闻
             int count = count(new QueryWrapper<News>().eq(NEWS_CATEGORY_ID, dto.getNewsCategoryId()));
+
             if (count >= 1) {
                 throw new HintException("该类别下只能存在一篇新闻");
             }
         }
-        // 判断图片是否为空
+
+        // 如果上传的图片不为空, 则保存图片
         if (dto.getPictureFile() != null) {
-            String s = HeaderImgUpload.headPortraitUpload(dto.getPictureFile());
+            String s = ImgUtils.uploadImage(dto.getPictureFile());
             dto.setPicturePath(s);
         }
+
         return save(modelMapper.map(dto, News.class));
     }
 
     @Override
     public String saveImage(NewsAddDTO dto) throws IOException {
-        String picturePath = HeaderImgUpload.headPortraitUpload(dto.getPictureFile());
+        String picturePath = ImgUtils.uploadImage(dto.getPictureFile());
         dto.setPicturePath(picturePath);
         return picturePath;
+    }
+
+    @Override
+    public boolean deleteImage(NewsAddDTO dto) throws IOException {
+        return ImgUtils.deleteImage(dto.getPictureFile());
     }
 
     @Override
@@ -76,16 +85,21 @@ public class NewsServiceImpl extends ServiceImpl<NewsMapper, News> implements Ne
     public boolean updateNews(NewsUpdateDTO dto) throws IOException {
         // 查看新闻是否存在
         int count1 = count(new QueryWrapper<News>().eq(ID, dto.getId()));
+
         if (count1 < 1) {
             throw new HintException("id为" + dto.getId() + "的新闻不存在");
         }
+
         if (dto.getNewsCategoryId() != null && nonentityNewsCategory(dto.getNewsCategoryId())) {
             throw new HintException("此新闻类别不存在");
         }
+
         // dto.getNewsCategoryId() 不为null 说明新闻类别可能会更改，需要判断更改后的类别是否是只能存储一篇新闻的展示新闻类型
         if (dto.getNewsCategoryId() != null) {
             Integer newCategoryId = dto.getNewsCategoryId();
-            NewsCategory newsCategory = newsCategoryMapper.selectOne(new QueryWrapper<NewsCategory>().select(NewsCategoryService.DISPLAY_CONTENT).eq(NewsCategoryService.ID, newCategoryId));
+            NewsCategory newsCategory = newsCategoryMapper.selectOne(new QueryWrapper<NewsCategory>()
+                    .select(NewsCategoryService.DISPLAY_CONTENT).eq(NewsCategoryService.ID, newCategoryId));
+
             if (newsCategory.getDisplayContent() == DisplayContent.NEWS) {
                 // 检查该标题下是否存在新闻
                 int count = count(new QueryWrapper<News>().eq(NEWS_CATEGORY_ID, newCategoryId));
@@ -94,11 +108,13 @@ public class NewsServiceImpl extends ServiceImpl<NewsMapper, News> implements Ne
                 }
             }
         }
+
         // 需要修改图片
         if (dto.getPictureFile() != null) {
-            String s = HeaderImgUpload.headPortraitUpload(dto.getPictureFile());
+            String s = ImgUtils.uploadImage(dto.getPictureFile());
             dto.setPicturePath(s);
         }
+
         return updateById(modelMapper.map(dto, News.class));
     }
 
@@ -115,9 +131,11 @@ public class NewsServiceImpl extends ServiceImpl<NewsMapper, News> implements Ne
     public NewsQueryDTO getNewsById(Integer id) {
         // 新闻点击率加一
         News one = getOne(new QueryWrapper<News>().select(HITS).eq(ID, id));
+
         if (one == null) {
             return null;
         }
+
         update(new UpdateWrapper<News>().set(HITS, one.getHits() + 1).eq(ID, id));
         return modelMapper.map(getById(id), NewsQueryDTO.class);
     }

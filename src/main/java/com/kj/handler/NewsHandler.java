@@ -3,7 +3,7 @@ package com.kj.handler;
 import com.kj.dto.NewsAddDTO;
 import com.kj.dto.NewsQueryDTO;
 import com.kj.dto.NewsUpdateDTO;
-import com.kj.module.HeaderImgUpload;
+import com.kj.util.ImgUtils;
 import com.kj.permission.annotation.GeneralAdmin;
 import com.kj.service.NewsService;
 import com.kj.vo.Result;
@@ -35,6 +35,13 @@ public class NewsHandler {
     @Autowired
     NewsService newsService;
 
+    @ApiOperation("根据新闻id获取新闻")
+    @GetMapping("/main/{id}")
+    public Result queryNewsById(@PathVariable("id") Integer id) {
+        NewsQueryDTO news = newsService.getNewsById(id);
+        return new Result().ok().data(news);
+    }
+
     @GeneralAdmin
     @ApiOperation(value = "添加新闻")
     @PostMapping(value = "/add")
@@ -54,7 +61,7 @@ public class NewsHandler {
         String picturePath = "";
 
         // 如果图片存在, 则直接返回图片
-        if (HeaderImgUpload.ifExistsPicture(pictureFile)) {
+        if (ImgUtils.ifExistsPicture(pictureFile)) {
             picturePath = "http://localhost:8084/image/" + pictureFile.getOriginalFilename();
         } else {
             String savePath = newsService.saveImage(newsAddDTO);
@@ -65,9 +72,20 @@ public class NewsHandler {
     }
 
     @GeneralAdmin
-    @ApiOperation(value = "添加新闻内容")
+    @ApiOperation(value = "删除图片")
+    @PostMapping(value = "/deleteImage")
+    public Result deleteImage(@RequestParam("image") MultipartFile pictureFile) throws IOException {
+        NewsAddDTO newsAddDTO = new NewsAddDTO();
+        newsAddDTO.setPictureFile(pictureFile);
+        boolean isDelete = ImgUtils.deleteImage(pictureFile);
+        return new Result().ok().data(isDelete);
+    }
+
+    @GeneralAdmin
+    @ApiOperation(value = "添加内容")
     @PostMapping(value = "/addContent")
-    public Result addContent(NewsAddVO vo) throws IOException {
+        public Result addContent(@RequestBody NewsAddVO vo) throws IOException {
+        System.out.println("rqe: " + vo);
         NewsAddDTO newsAddDTO = modelMapper.map(vo, NewsAddDTO.class);
         return new Result().ok().data(newsService.saveNews(newsAddDTO));
     }
@@ -82,9 +100,9 @@ public class NewsHandler {
     @GeneralAdmin
     @ApiOperation(value = "修改新闻")
     @PostMapping("/update")
-    public Result updateNews(MultipartFile pictureFile, NewsUpdateVO vo) throws IOException {
+    public Result updateNews(@RequestBody NewsUpdateVO vo) throws IOException {
+        System.out.println(vo);
         NewsUpdateDTO newsUpdateDTO = modelMapper.map(vo, NewsUpdateDTO.class);
-        newsUpdateDTO.setPictureFile(pictureFile);
         return new Result().ok().data(newsService.updateNews(newsUpdateDTO));
     }
 
@@ -100,10 +118,4 @@ public class NewsHandler {
         return new Result().ok().data(newsService.fuzzyQueryListByTitle(vo.getTitle(), vo.getCurrent(), vo.getSize()));
     }
 
-    @ApiOperation("获取新闻主体根据id")
-    @GetMapping("/main/{id}")
-    public Result queryNewsById(@PathVariable("id") Integer id) {
-        NewsQueryDTO news = newsService.getNewsById(id);
-        return new Result().ok().data(news);
-    }
 }

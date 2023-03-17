@@ -5,10 +5,6 @@ import lombok.Data;
 
 import java.io.Serializable;
 
-/**
- * @author 破晓
- * @date 2022-01-09 17:13
- */
 @Data
 public class Result implements Serializable {
 
@@ -70,4 +66,5 @@ public class Result implements Serializable {
         result.setMsg(code.getMsg());
         return result;
     }
+
 }

@@ -5,10 +5,6 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.optimize.JsqlParser
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-/**
- * @author 破晓
- * @date 2022-01-10 19:10
- */
 @Configuration
 public class MybatisPlusConfig {
 

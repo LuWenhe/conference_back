@@ -14,6 +14,6 @@ import lombok.NoArgsConstructor;
 public class NewsTypeVO {
 
     private Integer id;
-
     private String name;
+
 }

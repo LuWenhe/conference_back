@@ -1,4 +1,4 @@
-package com.kj.module;
+package com.kj.util;
 
 import com.kj.exception.HintException;
 import lombok.extern.slf4j.Slf4j;
@@ -11,15 +11,13 @@ import java.util.List;
 import java.util.UUID;
 
 /**
- * @author 破晓
- * @date 2021/8/2 - 1:56
- * 用于照片上传
+ * 处理图片的工具类
  */
 @Slf4j
-public class HeaderImgUpload {
+public class ImgUtils {
 
     //静态资源路径
-    private static final String FILE_PATH_PREFIX = "static/images";
+//    private static final String FILE_PATH_PREFIX = "static/images";
 
     private static final String FILE_PATH_PREFIX_READ = "image";
 
@@ -31,12 +29,11 @@ public class HeaderImgUpload {
 
     private static final String FILE_DIRECTORY = "D:/Projects/ActualProjects/conference/image";
 
-    public static String headPortraitUpload(MultipartFile file) throws IOException, HintException {
+    public static String uploadImage(MultipartFile file) throws IOException, HintException {
         if (!FILE_TYPE.contains(file.getContentType())) {
             throw new HintException("上传的文件类型只能是:" + FILE_TYPE);
         }
 
-//        String path = System.getProperty("user.dir");
         File upload = new File(FILE_DIRECTORY);
 
         log.info("目录upload: " + upload);
@@ -62,10 +59,36 @@ public class HeaderImgUpload {
         return FILE_PATH_PREFIX_READ + "/" + fileName + FILE_PATH_SUFFIX;
     }
 
+    public static boolean deleteImage(MultipartFile multipartFile) throws IOException, HintException {
+        File pictureFile = getPictureFile(multipartFile);
+
+        if (pictureFile == null) {
+            return false;
+        }
+
+        return pictureFile.delete();
+    }
+
+    // 图片是否存在
     public static boolean ifExistsPicture(MultipartFile multipartFile) {
+        File pictureFile = getPictureFile(multipartFile);
+
+        if (pictureFile == null) {
+            return false;
+        }
+
+        return pictureFile.exists();
+    }
+
+    // 得到图片文件对象
+    public static File getPictureFile(MultipartFile multipartFile) {
         String filename = multipartFile.getOriginalFilename();
-        File file = new File(FILE_DIRECTORY, filename);
-        return file.exists();
+
+        if (filename == null) {
+            return null;
+        }
+
+        return new File(FILE_DIRECTORY, filename);
     }
 
     /*public static String getPortraitPath(String headPortraitId) {

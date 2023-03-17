@@ -13,9 +13,6 @@ import org.springframework.web.multipart.MultipartFile;
 import java.util.Date;
 
 /**
- * @author 破晓
- * @date 2022-01-09 15:36
- *
  * 新闻主体
  */
 @Data
@@ -24,11 +21,11 @@ import java.util.Date;
 public class NewsAddVO {
 
     private String title;
-
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date releaseTime;
-
     private String content;
-
+    private String mdContent;
+    private String htmlContent;
     private Integer newsCategoryId;
+
 }

@@ -8,9 +8,6 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- * @author 破晓
- * @date 2022-01-10 20:56
- * <p>
  * 新闻分页类
  */
 @Data
@@ -18,33 +15,11 @@ import java.util.List;
 @NoArgsConstructor
 public class NewsPaging {
 
-    /**
-     * 查询数据列表
-     */
-    List<Object> records = Collections.emptyList();
+    List<Object> records = Collections.emptyList();    // 查询数据列表
+    long total;          // 总数
+    long size;           // 每页显示条数, 默认是10
+    long current;        // 当前页
+    boolean previous;    // 是否存在上一页
+    boolean hasNext;     // 是否存在下一页
 
-    /**
-     * 总数
-     */
-    long total;
-
-    /**
-     * 每页显示条数，默认 10
-     */
-    long size;
-
-    /**
-     * 当前页
-     */
-    long current;
-
-    /**
-     * 是否存在上一页
-     */
-    boolean previous;
-
-    /**
-     * 是否存在下一页
-     */
-    boolean hasNext;
 }

@@ -16,4 +16,5 @@ public class HashUtils {
         SimpleHash simpleHash = new SimpleHash("MD5", password, ByteSource.Util.bytes(username), 1024);
         return simpleHash.toString();
     }
+
 }
