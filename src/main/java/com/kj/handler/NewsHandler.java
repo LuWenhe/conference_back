@@ -13,18 +13,17 @@ import com.kj.vo.news.PagingFuzzyQueryListByTitleVO;
 import com.kj.vo.news.PagingQueryListByNewsCategoryIdVO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 
-/**
- * @author 破晓
- * @date 2022-01-11 14:32
- */
 @Api(tags = "新闻主体操作")
+@Slf4j
 @RestController
 @RequestMapping("/news")
 public class NewsHandler {
@@ -34,6 +33,12 @@ public class NewsHandler {
 
     @Autowired
     NewsService newsService;
+
+    @Value("${image.url}")
+    private String imageURL;
+
+    @Value("${image.directory}")
+    private String imageDirectory;
 
     @ApiOperation("根据新闻id获取新闻")
     @GetMapping("/main/{id}")
@@ -56,16 +61,18 @@ public class NewsHandler {
     @PostMapping(value = "/addImage")
     public Result addImage(@RequestParam("image") MultipartFile pictureFile)
             throws IOException {
+        log.info("imageURL:{}", imageURL);
+        log.info("imageDirectory:{}", imageDirectory);
         NewsAddDTO newsAddDTO = new NewsAddDTO();
         newsAddDTO.setPictureFile(pictureFile);
         String picturePath = "";
 
         // 如果图片存在, 则直接返回图片
-        if (ImgUtils.ifExistsPicture(pictureFile)) {
-            picturePath = "http://localhost:8084/image/" + pictureFile.getOriginalFilename();
+        if (ImgUtils.ifExistsPicture(pictureFile, imageDirectory)) {
+            picturePath = imageURL + "/image/" + pictureFile.getOriginalFilename();
         } else {
-            String savePath = newsService.saveImage(newsAddDTO);
-            picturePath = "http://localhost:8084/" + savePath;
+            String savePath = newsService.saveImage(newsAddDTO, imageDirectory);
+            picturePath = imageURL + "/" + savePath;
         }
 
         return new Result().ok().data(picturePath);
@@ -74,17 +81,17 @@ public class NewsHandler {
     @GeneralAdmin
     @ApiOperation(value = "删除图片")
     @PostMapping(value = "/deleteImage")
-    public Result deleteImage(@RequestParam("image") MultipartFile pictureFile) throws IOException {
+    public Result deleteImage(@RequestParam("image") MultipartFile pictureFile) {
         NewsAddDTO newsAddDTO = new NewsAddDTO();
         newsAddDTO.setPictureFile(pictureFile);
-        boolean isDelete = ImgUtils.deleteImage(pictureFile);
+        boolean isDelete = ImgUtils.deleteImage(pictureFile, imageDirectory);
         return new Result().ok().data(isDelete);
     }
 
     @GeneralAdmin
     @ApiOperation(value = "添加内容")
     @PostMapping(value = "/addContent")
-        public Result addContent(@RequestBody NewsAddVO vo) throws IOException {
+    public Result addContent(@RequestBody NewsAddVO vo) throws IOException {
         System.out.println("rqe: " + vo);
         NewsAddDTO newsAddDTO = modelMapper.map(vo, NewsAddDTO.class);
         return new Result().ok().data(newsService.saveNews(newsAddDTO));
@@ -103,7 +110,7 @@ public class NewsHandler {
     public Result updateNews(@RequestBody NewsUpdateVO vo) throws IOException {
         System.out.println(vo);
         NewsUpdateDTO newsUpdateDTO = modelMapper.map(vo, NewsUpdateDTO.class);
-        return new Result().ok().data(newsService.updateNews(newsUpdateDTO));
+        return new Result().ok().data(newsService.updateNews(newsUpdateDTO, imageDirectory));
     }
 
     @ApiOperation(value = "分页查询指定小标题下的新闻列表，可指定当前页和每页条数")

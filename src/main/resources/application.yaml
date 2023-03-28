@@ -6,12 +6,8 @@ server:
     encoding:
       charset: UTF-8
 spring:
-  datasource:
-    driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/news_website2?useSSL=false&useUnicode=true&characterEncoding=UTF8&serverTimezone=UTC
-    username: root
-    password: root
-#    password: louise
+  profiles:
+    active: dev
   jackson:
     # 使用24小时的时间格式
     default-property-inclusion: NON_NULL
@@ -30,3 +26,9 @@ mybatis-plus:
     map-underscore-to-camel-case: true
     # 枚举映射
     default-enum-type-handler: org.apache.ibatis.type.EnumOrdinalTypeHandler
+image:
+  url: http://localhost:8084
+  directory: D:/Projects/ActualProjects/conference/image
+#image:
+#  url: http://124.71.143.3:8085
+#  directory: /home/conference/image

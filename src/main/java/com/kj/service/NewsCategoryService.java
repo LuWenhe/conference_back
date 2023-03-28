@@ -9,10 +9,6 @@ import io.swagger.models.auth.In;
 
 import java.util.List;
 
-/**
- * @author 破晓
- * @date 2022-01-09 16:12
- */
 public interface NewsCategoryService extends IService<NewsCategory> {
 
     String ID = "id";

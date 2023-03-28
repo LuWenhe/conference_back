@@ -39,12 +39,12 @@ public interface NewsService extends IService<News> {
     /**
      * 添加markdown中的图片
      */
-    String saveImage(NewsAddDTO dto) throws IOException;
+    String saveImage(NewsAddDTO dto, String imageDirectory) throws IOException;
 
     /**
      * 删除markdown中的图片
      */
-    boolean deleteImage(NewsAddDTO dto) throws IOException;
+    boolean deleteImage(NewsAddDTO dto, String imageDirectory) throws IOException;
 
     /**
      * 删除新闻根据id
@@ -54,7 +54,7 @@ public interface NewsService extends IService<News> {
     /**
      * 修改新闻
      */
-    boolean updateNews(NewsUpdateDTO dto) throws IOException;
+    boolean updateNews(NewsUpdateDTO dto, String imageDirectory) throws IOException;
 
     /**
      * 根据 NEWS_CATEGORY_ID 获取 新闻展示列表

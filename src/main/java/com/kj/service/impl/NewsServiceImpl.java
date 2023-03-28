@@ -22,10 +22,6 @@ import org.springframework.stereotype.Service;
 import java.io.IOException;
 import java.util.List;
 
-/**
- * @author 破晓
- * @date 2022-01-09 16:28
- */
 @Service
 public class NewsServiceImpl extends ServiceImpl<NewsMapper, News> implements NewsService {
 
@@ -55,25 +51,23 @@ public class NewsServiceImpl extends ServiceImpl<NewsMapper, News> implements Ne
             }
         }
 
-        // 如果上传的图片不为空, 则保存图片
-        if (dto.getPictureFile() != null) {
-            String s = ImgUtils.uploadImage(dto.getPictureFile());
-            dto.setPicturePath(s);
-        }
+//        // 如果上传的图片不为空, 则保存图片
+//        if (dto.getPictureFile() != null) {
+//            String s = ImgUtils.uploadImage(dto.getPictureFile());
+//            dto.setPicturePath(s);
+//        }
 
         return save(modelMapper.map(dto, News.class));
     }
 
     @Override
-    public String saveImage(NewsAddDTO dto) throws IOException {
-        String picturePath = ImgUtils.uploadImage(dto.getPictureFile());
-        dto.setPicturePath(picturePath);
-        return picturePath;
+    public String saveImage(NewsAddDTO dto, String imageDirectory) throws IOException {
+        return ImgUtils.uploadImage(dto.getPictureFile(), imageDirectory);
     }
 
     @Override
-    public boolean deleteImage(NewsAddDTO dto) throws IOException {
-        return ImgUtils.deleteImage(dto.getPictureFile());
+    public boolean deleteImage(NewsAddDTO dto, String imageDirectory) throws IOException {
+        return ImgUtils.deleteImage(dto.getPictureFile(), imageDirectory);
     }
 
     @Override
@@ -82,7 +76,7 @@ public class NewsServiceImpl extends ServiceImpl<NewsMapper, News> implements Ne
     }
 
     @Override
-    public boolean updateNews(NewsUpdateDTO dto) throws IOException {
+    public boolean updateNews(NewsUpdateDTO dto, String imageDirectory) throws IOException {
         // 查看新闻是否存在
         int count1 = count(new QueryWrapper<News>().eq(ID, dto.getId()));
 
@@ -111,7 +105,7 @@ public class NewsServiceImpl extends ServiceImpl<NewsMapper, News> implements Ne
 
         // 需要修改图片
         if (dto.getPictureFile() != null) {
-            String s = ImgUtils.uploadImage(dto.getPictureFile());
+            String s = ImgUtils.uploadImage(dto.getPictureFile(), imageDirectory);
             dto.setPicturePath(s);
         }
 

@@ -2,6 +2,8 @@ package com.kj.util;
 
 import com.kj.exception.HintException;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
@@ -16,9 +18,6 @@ import java.util.UUID;
 @Slf4j
 public class ImgUtils {
 
-    //静态资源路径
-//    private static final String FILE_PATH_PREFIX = "static/images";
-
     private static final String FILE_PATH_PREFIX_READ = "image";
 
     //文件路径后缀
@@ -27,14 +26,12 @@ public class ImgUtils {
     // 默认的图片后缀
     private static final List<String> FILE_TYPE = Arrays.asList("image/jpeg", "image/png");
 
-    private static final String FILE_DIRECTORY = "D:/Projects/ActualProjects/conference/image";
-
-    public static String uploadImage(MultipartFile file) throws IOException, HintException {
+    public static String uploadImage(MultipartFile file, String imageDirectory) throws IOException, HintException {
         if (!FILE_TYPE.contains(file.getContentType())) {
             throw new HintException("上传的文件类型只能是:" + FILE_TYPE);
         }
 
-        File upload = new File(FILE_DIRECTORY);
+        File upload = new File(imageDirectory);
 
         log.info("目录upload: " + upload);
 
@@ -59,8 +56,8 @@ public class ImgUtils {
         return FILE_PATH_PREFIX_READ + "/" + fileName + FILE_PATH_SUFFIX;
     }
 
-    public static boolean deleteImage(MultipartFile multipartFile) throws IOException, HintException {
-        File pictureFile = getPictureFile(multipartFile);
+    public static boolean deleteImage(MultipartFile multipartFile, String imageDirectory) throws HintException {
+        File pictureFile = getPictureFile(multipartFile, imageDirectory);
 
         if (pictureFile == null) {
             return false;
@@ -70,8 +67,8 @@ public class ImgUtils {
     }
 
     // 图片是否存在
-    public static boolean ifExistsPicture(MultipartFile multipartFile) {
-        File pictureFile = getPictureFile(multipartFile);
+    public static boolean ifExistsPicture(MultipartFile multipartFile, String imageDirectory) {
+        File pictureFile = getPictureFile(multipartFile, imageDirectory);
 
         if (pictureFile == null) {
             return false;
@@ -81,14 +78,14 @@ public class ImgUtils {
     }
 
     // 得到图片文件对象
-    public static File getPictureFile(MultipartFile multipartFile) {
+    public static File getPictureFile(MultipartFile multipartFile, String imageDirectory) {
         String filename = multipartFile.getOriginalFilename();
 
         if (filename == null) {
             return null;
         }
 
-        return new File(FILE_DIRECTORY, filename);
+        return new File(imageDirectory, filename);
     }
 
     /*public static String getPortraitPath(String headPortraitId) {

@@ -25,8 +25,8 @@ public class OperationHandler {
 //    @GeneralAdmin
     @ApiOperation(value = "单文件上传")
     @PostMapping("/uploading")
-    public Result filesUpload(MultipartFile file) throws IOException {
-        String s = ImgUtils.uploadImage(file);
+    public Result filesUpload(MultipartFile file, String imageDirectory) throws IOException {
+        String s = ImgUtils.uploadImage(file, imageDirectory);
         return new Result().ok().data(s);
     }
 
