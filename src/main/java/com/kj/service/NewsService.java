@@ -5,12 +5,7 @@ import com.kj.dto.*;
 import com.kj.entity.News;
 
 import java.io.IOException;
-import java.util.List;
 
-/**
- * @author 破晓
- * @date 2022-01-09 16:27
- */
 public interface NewsService extends IService<News> {
 
     String PICTURE_PATH = "picture_path";

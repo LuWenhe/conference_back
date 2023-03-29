@@ -10,10 +10,6 @@ import org.springframework.context.annotation.Configuration;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-/**
- * @author 破晓
- * @date 2022-01-22 22:15
- */
 @Configuration
 public class ShiroConfig {
 

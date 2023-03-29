@@ -21,10 +21,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-/**
- * @author 破晓
- * @date 2022-01-23 18:45
- */
 @Api(tags = "管理员操作")
 @RestController
 @RequestMapping("/admin")

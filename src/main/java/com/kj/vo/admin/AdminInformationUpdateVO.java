@@ -5,9 +5,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- * @author 破晓
- * @date 2022-01-23 16:22
- *
  * 管理员修改密码
  */
 @Data

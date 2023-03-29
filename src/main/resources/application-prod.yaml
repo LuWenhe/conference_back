@@ -1,0 +1,6 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://124.71.143.3:3306/news_website?useSSL=false&useUnicode=true&characterEncoding=UTF8&serverTimezone=UTC
+    username: root
+    password: nuist@305

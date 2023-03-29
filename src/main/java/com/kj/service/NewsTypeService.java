@@ -6,10 +6,6 @@ import com.kj.entity.NewsType;
 
 import java.util.List;
 
-/**
- * @author 破晓
- * @date 2022-01-09 15:59
- */
 public interface NewsTypeService extends IService<NewsType> {
 
     String ID = "id";

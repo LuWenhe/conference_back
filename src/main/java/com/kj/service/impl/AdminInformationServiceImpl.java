@@ -20,10 +20,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
-/**
- * @author 破晓
- * @date 2022-01-23 16:32
- */
 @Service
 public class AdminInformationServiceImpl extends ServiceImpl<AdminInformationMapper, AdminInformation> implements AdminInformationService {
 
@@ -32,7 +28,7 @@ public class AdminInformationServiceImpl extends ServiceImpl<AdminInformationMap
 
     @Override
     public void checkPassword(String username, String password) {
-        int count = count(new QueryWrapper<AdminInformation>().eq(USERNAME, username).eq(PASSWORD, HashUtils.MD5(username, password)));
+        int count = count(new QueryWrapper<AdminInformation>().eq(USERNAME, username).eq(PASSWORD, HashUtils.encrypt(username, password)));
         if (count < 1) {
             throw new HintException("密码错误");
         }
@@ -45,7 +41,7 @@ public class AdminInformationServiceImpl extends ServiceImpl<AdminInformationMap
         if (count > 0) {
             throw new HintException("用户名已经存在");
         }
-        dto.setPassword(HashUtils.MD5(dto.getUsername(), dto.getPassword()));
+        dto.setPassword(HashUtils.encrypt(dto.getUsername(), dto.getPassword()));
         return save(modelMapper.map(dto, AdminInformation.class));
     }
 
@@ -65,7 +61,7 @@ public class AdminInformationServiceImpl extends ServiceImpl<AdminInformationMap
         if (count < 1) {
             throw new HintException("此用户名不存在");
         }
-        String password = HashUtils.MD5(dto.getUsername(), dto.getPassword());
+        String password = HashUtils.encrypt(dto.getUsername(), dto.getPassword());
         return update(new UpdateWrapper<AdminInformation>().set(PASSWORD, password).eq(USERNAME, dto.getUsername()));
     }
 

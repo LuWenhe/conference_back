@@ -12,9 +12,6 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.IOException;
 
 /**
- * @author 破晓
- * @date 2022-01-29 23:09
- *
  * 上传图片操作
  */
 @Slf4j

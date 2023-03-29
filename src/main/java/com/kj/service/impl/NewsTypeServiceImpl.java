@@ -14,10 +14,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-/**
- * @author 破晓
- * @date 2022-01-09 16:04
- */
 @Service
 public class NewsTypeServiceImpl extends ServiceImpl<NewsTypeMapper, NewsType> implements NewsTypeService {
 

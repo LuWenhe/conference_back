@@ -8,10 +8,6 @@ import com.kj.entity.AdminInformation;
 
 import java.util.List;
 
-/**
- * @author 破晓
- * @date 2022-01-23 16:31
- */
 public interface AdminInformationService extends IService<AdminInformation> {
 
     String ID = "id";

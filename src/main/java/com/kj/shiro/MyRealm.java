@@ -13,10 +13,6 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-/**
- * @author 破晓
- * @date 2022-01-23 16:43
- */
 @Component
 public class MyRealm extends AuthorizingRealm {
 
@@ -69,7 +65,6 @@ public class MyRealm extends AuthorizingRealm {
          */
         //盐值：
         ByteSource byteSource = ByteSource.Util.bytes(username);
-        //SimpleAuthenticationInfo(Object principal, Object hashedCredentials, ByteSource credentialsSalt, String realmName)
         return new SimpleAuthenticationInfo(principal, adminInformation.getPassword(), byteSource, getName());
     }
 }

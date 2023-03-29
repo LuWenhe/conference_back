@@ -17,10 +17,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-/**
- * @author 破晓
- * @date 2022-01-10 13:51
- */
 @Api(tags = "新闻类别操作（小标题）")
 @RestController
 @RequestMapping("/news_category")

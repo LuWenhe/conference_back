@@ -11,10 +11,6 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-/**
- * @author 破晓
- * @date 2022-01-09 20:48
- */
 @Api(tags = "新闻类型操作（大标题）")
 @RestController
 @RequestMapping("/news_type")

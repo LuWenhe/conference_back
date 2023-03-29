@@ -10,9 +10,6 @@ import lombok.NoArgsConstructor;
 import java.util.Date;
 
 /**
- * @author 破晓
- * @date 2022-01-09 15:36
- *
  * 查询新闻主体
  */
 @Data

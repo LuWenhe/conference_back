@@ -11,9 +11,6 @@ import lombok.NoArgsConstructor;
 import java.util.Date;
 
 /**
- * @author 破晓
- * @date 2022-01-23 16:22
- *
  * 管理员信息表
  */
 @TableName("admin_information")
