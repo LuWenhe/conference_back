@@ -19,7 +19,6 @@ public class SwaggerConfig {
     public Docket webApiConfig(ApiInfo apiInfo) {
         return new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(apiInfo)
-//                .groupName("hhhhhhhhhhh")
                 .select()
                 .apis(RequestHandlerSelectors.basePackage("com.kj.handler"))
                 .paths(PathSelectors.any())

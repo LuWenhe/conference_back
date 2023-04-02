@@ -19,4 +19,10 @@ class NewsServiceTest {
         System.out.println(news);
     }
 
+    @Test
+    void getNewListByNewsCategoryId() {
+        NewsQueryDTO newByNewCategoryId = newsService.getNewByNewCategoryId(37);
+        System.out.println(newByNewCategoryId);
+    }
+
 }

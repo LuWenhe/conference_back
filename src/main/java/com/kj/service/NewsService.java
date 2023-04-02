@@ -3,27 +3,22 @@ package com.kj.service;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.kj.dto.*;
 import com.kj.entity.News;
+import io.swagger.models.auth.In;
 
 import java.io.IOException;
 
 public interface NewsService extends IService<News> {
 
     String PICTURE_PATH = "picture_path";
-
     String ID = "id";
-
     String TITLE = "title";
-
     String RELEASE_TIME = "release_time";
-
     String HITS = "hits";
-
     String CONTENT = "content";
-
+    String HTML_CONTENT = "html_content";
+    String MD_CONTENT = "md_content";
     String NEWS_CATEGORY_ID = "news_category_id";
-
     String CREATE_TIME = "create_time";
-
     String UPDATE_TIME = "update_time";
 
     /**
@@ -65,5 +60,10 @@ public interface NewsService extends IService<News> {
      * 获取新闻根据 id
      */
     NewsQueryDTO getNewsById(Integer id);
+
+    /**
+     * 根据newCategoryId获取信息
+     */
+    NewsQueryDTO getNewByNewCategoryId(Integer newCategoryId);
 
 }

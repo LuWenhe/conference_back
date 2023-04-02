@@ -32,7 +32,7 @@ public class NewsServiceImpl extends ServiceImpl<NewsMapper, News> implements Ne
     NewsCategoryMapper newsCategoryMapper;
 
     @Override
-    public boolean saveNews(NewsAddDTO dto) throws IOException {
+    public boolean saveNews(NewsAddDTO dto) {
         if (nonentityNewsCategory(dto.getNewsCategoryId())) {
             throw new HintException("此新闻类别不存在");
         }
@@ -50,12 +50,6 @@ public class NewsServiceImpl extends ServiceImpl<NewsMapper, News> implements Ne
                 throw new HintException("该类别下只能存在一篇新闻");
             }
         }
-
-//        // 如果上传的图片不为空, 则保存图片
-//        if (dto.getPictureFile() != null) {
-//            String s = ImgUtils.uploadImage(dto.getPictureFile());
-//            dto.setPicturePath(s);
-//        }
 
         return save(modelMapper.map(dto, News.class));
     }
@@ -114,7 +108,8 @@ public class NewsServiceImpl extends ServiceImpl<NewsMapper, News> implements Ne
 
     @Override
     public NewsPaging getNewsListByNewsCategoryId(Integer newsCategoryId, Integer current, Integer size) {
-        Page<News> page = page(new Page<>(current, size), new QueryWrapper<News>().select(ID, TITLE, RELEASE_TIME, PICTURE_PATH).eq(NEWS_CATEGORY_ID, newsCategoryId).orderByDesc(RELEASE_TIME));
+        Page<News> page = page(new Page<>(current, size),
+                new QueryWrapper<News>().select(ID, TITLE, RELEASE_TIME, PICTURE_PATH).eq(NEWS_CATEGORY_ID, newsCategoryId).orderByDesc(RELEASE_TIME));
         NewsPaging newsPaging = modelMapper.map(page, NewsPaging.class);
         List<News> records = page.getRecords();
         newsPaging.setRecords(modelMapper.map(records, new TypeToken<List<NewsQueryListDTO>>(){}.getType()));
@@ -135,8 +130,15 @@ public class NewsServiceImpl extends ServiceImpl<NewsMapper, News> implements Ne
     }
 
     @Override
+    public NewsQueryDTO getNewByNewCategoryId(Integer newCategoryId) {
+        News one = getOne(new QueryWrapper<News>().select(ID, TITLE, RELEASE_TIME, HTML_CONTENT).eq(NEWS_CATEGORY_ID, newCategoryId));
+        return modelMapper.map(one, NewsQueryDTO.class);
+    }
+
+    @Override
     public NewsPaging fuzzyQueryListByTitle(String title, Integer current, Integer size) {
-        Page<News> page = page(new Page<>(current, size), new QueryWrapper<News>().select(ID, TITLE, RELEASE_TIME, PICTURE_PATH).like(TITLE, title).orderByDesc(RELEASE_TIME));
+        Page<News> page = page(new Page<>(current, size), new QueryWrapper<News>().select(ID, TITLE, RELEASE_TIME, PICTURE_PATH)
+                .like(TITLE, title).orderByDesc(RELEASE_TIME));
         NewsPaging newsPaging = modelMapper.map(page, NewsPaging.class);
         List<News> records = page.getRecords();
         newsPaging.setRecords(modelMapper.map(records, new TypeToken<List<NewsQueryListDTO>>(){}.getType()));

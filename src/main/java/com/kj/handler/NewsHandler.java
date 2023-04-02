@@ -47,6 +47,13 @@ public class NewsHandler {
         return new Result().ok().data(news);
     }
 
+    @ApiOperation("根据new_category的id获取新闻信息")
+    @GetMapping("/get/{newCategoryId}")
+    public Result getNewByNewCategoryId(@PathVariable("newCategoryId") Integer newCategoryId) {
+        NewsQueryDTO newsQueryDTO = newsService.getNewByNewCategoryId(newCategoryId);
+        return new Result().ok().data(newsQueryDTO);
+    }
+
     @GeneralAdmin
     @ApiOperation(value = "添加新闻")
     @PostMapping(value = "/add")
@@ -92,7 +99,6 @@ public class NewsHandler {
     @ApiOperation(value = "添加内容")
     @PostMapping(value = "/addContent")
     public Result addContent(@RequestBody NewsAddVO vo) throws IOException {
-        System.out.println("rqe: " + vo);
         NewsAddDTO newsAddDTO = modelMapper.map(vo, NewsAddDTO.class);
         return new Result().ok().data(newsService.saveNews(newsAddDTO));
     }
@@ -108,7 +114,6 @@ public class NewsHandler {
     @ApiOperation(value = "修改新闻")
     @PostMapping("/update")
     public Result updateNews(@RequestBody NewsUpdateVO vo) throws IOException {
-        System.out.println(vo);
         NewsUpdateDTO newsUpdateDTO = modelMapper.map(vo, NewsUpdateDTO.class);
         return new Result().ok().data(newsService.updateNews(newsUpdateDTO, imageDirectory));
     }
