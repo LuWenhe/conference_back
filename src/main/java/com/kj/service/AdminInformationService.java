@@ -25,7 +25,7 @@ public interface AdminInformationService extends IService<AdminInformation> {
     /**
      * 检验密码是否正确
      */
-    void checkPassword(String username, String password);
+    boolean checkPassword(String username, String password);
 
     /**
      * 添加普通管理员信息
@@ -51,4 +51,5 @@ public interface AdminInformationService extends IService<AdminInformation> {
      * 查找普通管理员列表
      */
     List<AdminInformationDTO> getAdminInformationList();
+
 }

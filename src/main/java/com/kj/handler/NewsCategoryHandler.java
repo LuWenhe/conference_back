@@ -2,7 +2,6 @@ package com.kj.handler;
 
 import com.kj.dto.NewsCategoryDTO;
 import com.kj.dto.NewsCategorySaveDTO;
-import com.kj.permission.annotation.SuperAdmin;
 import com.kj.service.NewsCategoryService;
 import com.kj.vo.Result;
 import com.kj.vo.news.category.NewsCategoryAddVO;
@@ -28,21 +27,18 @@ public class NewsCategoryHandler {
     @Autowired
     NewsCategoryService newsCategoryService;
 
-    @SuperAdmin
     @ApiOperation(value = "添加新闻类别")
     @PostMapping("/add")
     public Result addNewsCategory(NewsCategoryAddVO vo){
         return new Result().ok().data(newsCategoryService.saveNewsCategory(modelMapper.map(vo, NewsCategorySaveDTO.class)));
     }
 
-    @SuperAdmin
     @ApiOperation(value = "删除新闻类别")
     @PostMapping("/delete")
     public Result deleteNewsCategory(Integer id) {
         return new Result().ok().data(newsCategoryService.removeNewsCategoryById(id));
     }
 
-    @SuperAdmin
     @ApiOperation(value = "修改新闻类别")
     @PostMapping("/update")
     public Result updateNewsCategory(@RequestBody NewsCategoryUpdateVO vo) {

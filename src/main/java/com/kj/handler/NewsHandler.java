@@ -4,7 +4,6 @@ import com.kj.dto.NewsAddDTO;
 import com.kj.dto.NewsQueryDTO;
 import com.kj.dto.NewsUpdateDTO;
 import com.kj.util.ImgUtils;
-import com.kj.permission.annotation.GeneralAdmin;
 import com.kj.service.NewsService;
 import com.kj.vo.Result;
 import com.kj.vo.news.NewsAddVO;
@@ -19,7 +18,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-
 import java.io.IOException;
 
 @Api(tags = "新闻主体操作")
@@ -47,14 +45,24 @@ public class NewsHandler {
         return new Result().ok().data(news);
     }
 
+    @GetMapping("/getById")
+    public Result getAll(@RequestParam("newsId") Integer newsId) {
+        NewsQueryDTO newsById = newsService.getNewsById(newsId);
+        return new Result().ok().data(newsById);
+    }
+
     @ApiOperation("根据new_category的id获取新闻信息")
     @GetMapping("/get/{newCategoryId}")
     public Result getNewByNewCategoryId(@PathVariable("newCategoryId") Integer newCategoryId) {
         NewsQueryDTO newsQueryDTO = newsService.getNewByNewCategoryId(newCategoryId);
+
+        if (newsQueryDTO == null) {
+            return new Result().ok().data("新闻列表为空");
+        }
+
         return new Result().ok().data(newsQueryDTO);
     }
 
-    @GeneralAdmin
     @ApiOperation(value = "添加新闻")
     @PostMapping(value = "/add")
     public Result addNews(MultipartFile pictureFile, NewsAddVO vo) throws IOException {
@@ -63,7 +71,6 @@ public class NewsHandler {
         return new Result().ok().data(newsService.saveNews(newsAddDTO));
     }
 
-    @GeneralAdmin
     @ApiOperation(value = "添加图片")
     @PostMapping(value = "/addImage")
     public Result addImage(@RequestParam("image") MultipartFile pictureFile)
@@ -85,7 +92,6 @@ public class NewsHandler {
         return new Result().ok().data(picturePath);
     }
 
-    @GeneralAdmin
     @ApiOperation(value = "删除图片")
     @PostMapping(value = "/deleteImage")
     public Result deleteImage(@RequestParam("image") MultipartFile pictureFile) {
@@ -95,7 +101,6 @@ public class NewsHandler {
         return new Result().ok().data(isDelete);
     }
 
-    @GeneralAdmin
     @ApiOperation(value = "添加内容")
     @PostMapping(value = "/addContent")
     public Result addContent(@RequestBody NewsAddVO vo) throws IOException {
@@ -103,14 +108,12 @@ public class NewsHandler {
         return new Result().ok().data(newsService.saveNews(newsAddDTO));
     }
 
-    @GeneralAdmin
     @ApiOperation(value = "删除新闻")
-    @PostMapping("/delete")
-    public Result deleteNews(Integer id) {
-        return new Result().ok().data(newsService.removeNews(id));
+    @GetMapping("/delete/{newsId}")
+    public Result deleteNews(@PathVariable("newsId") Integer newsId) {
+        return new Result().ok().data(newsService.removeNews(newsId));
     }
 
-    @GeneralAdmin
     @ApiOperation(value = "修改新闻")
     @PostMapping("/update")
     public Result updateNews(@RequestBody NewsUpdateVO vo) throws IOException {

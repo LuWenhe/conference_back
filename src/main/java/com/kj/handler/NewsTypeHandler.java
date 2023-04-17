@@ -1,7 +1,6 @@
 package com.kj.handler;
 
 import com.kj.dto.NewsTypeDTO;
-import com.kj.permission.annotation.SuperAdmin;
 import com.kj.service.NewsTypeService;
 import com.kj.vo.Result;
 import com.kj.vo.news.type.NewsTypeVO;
@@ -22,21 +21,18 @@ public class NewsTypeHandler {
     @Autowired
     NewsTypeService newsTypeService;
 
-    @SuperAdmin
     @ApiOperation(value = "添加新闻类型", notes = "新闻类型名重复时会添加失败，并提示：name已经存在")
     @PostMapping("/add")
     public Result addNewsType(String name) {
         return new Result().ok().data(newsTypeService.saveNewsType(name));
     }
 
-    @SuperAdmin
     @ApiOperation(value = "删除新闻类型")
     @PostMapping("/delete")
     public Result deleteNewsType(Integer id) {
         return new Result().ok().data(newsTypeService.removeNewsTypeById(id));
     }
 
-    @SuperAdmin
     @ApiOperation(value = "修改新闻类型")
     @PostMapping("/update")
     public Result updateNewsType(NewsTypeVO vo) {

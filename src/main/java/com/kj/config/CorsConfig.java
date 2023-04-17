@@ -8,24 +8,20 @@ import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
-@Slf4j
-public class CorsConfig {
+public class CorsConfig implements WebMvcConfigurer {
 
-    @Bean
-    public WebMvcConfigurer webMvcConfigurer() {
-        return new WebMvcConfigurer() {
-            @Override
-            public void addCorsMappings(CorsRegistry registry) {
-                registry.addMapping("/**")    // 允许跨域访问的路径
-                        .allowCredentials(true) // 解决请求带上Cookie信息
-                        .allowedOriginPatterns("*")    // 允许跨域访问的源
-                        .allowedMethods("GET", "POST", "OPTIONS")
-                        .maxAge(60)    // 预检间隔时间
-                        .allowedHeaders("authorization", "Content-Type") // 允许头部设置
-                        .exposedHeaders()
-                        .allowCredentials(Boolean.TRUE);    // 是否发送cookie
-            }
-        };
+    @Override
+    public void addCorsMappings(CorsRegistry registry) {
+        // 允许跨域访问的路径
+        registry.addMapping("/**")
+                // 是否允许证书（cookies）
+                .allowCredentials(true)
+                // 允许跨域访问的源
+                .allowedOriginPatterns("*")
+                // 运行跨域的方法
+                .allowedMethods("GET", "POST", "OPTIONS")
+                // 跨域允许时间
+                .maxAge(60);
     }
 
 }

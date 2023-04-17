@@ -22,9 +22,4 @@ public class HashUtils {
         return new SimpleHash(ALGORITH_NAME, password, ByteSource.Util.bytes(username), HASH_ITERATIONS).toString();
     }
 
-
-    public static void main(String[] args) {
-        System.out.println(HashUtils.encrypt("admin", "nuist@305"));
-    }
-
 }

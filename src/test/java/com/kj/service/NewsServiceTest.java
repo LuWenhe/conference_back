@@ -21,7 +21,7 @@ class NewsServiceTest {
 
     @Test
     void getNewListByNewsCategoryId() {
-        NewsQueryDTO newByNewCategoryId = newsService.getNewByNewCategoryId(37);
+        NewsQueryDTO newByNewCategoryId = newsService.getNewByNewCategoryId(309);
         System.out.println(newByNewCategoryId);
     }
 

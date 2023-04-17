@@ -16,7 +16,7 @@ public class Result implements Serializable {
 
     private Object data;
 
-    private String cookie;
+    private String token;
 
     public Result() {
     }
@@ -55,8 +55,8 @@ public class Result implements Serializable {
         return this;
     }
 
-    public Result cookie(String cookie) {
-        this.cookie = cookie;
+    public Result token(String token) {
+        this.token = token;
         return this;
     }
 

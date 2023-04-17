@@ -31,7 +31,6 @@ public class SwaggerConfig {
                 .title("网站-新闻网")
                 .description("本文档描述了新闻微服务接口定义")
                 .version("1.0.0")
-                .contact(new Contact("@poxiao", "https://blog.csdn.net/can_meng_yun?spm=1001.2101.3001.5343", "2406448949@qq.com"))
                 .build();
     }
 }

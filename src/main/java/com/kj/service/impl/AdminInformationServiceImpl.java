@@ -11,6 +11,7 @@ import com.kj.enums.AdminRole;
 import com.kj.exception.HintException;
 import com.kj.mapper.AdminInformationMapper;
 import com.kj.service.AdminInformationService;
+import com.kj.util.EncryptUtil;
 import com.kj.util.HashUtils;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
@@ -27,20 +28,21 @@ public class AdminInformationServiceImpl extends ServiceImpl<AdminInformationMap
     private ModelMapper modelMapper;
 
     @Override
-    public void checkPassword(String username, String password) {
-        int count = count(new QueryWrapper<AdminInformation>().eq(USERNAME, username).eq(PASSWORD, HashUtils.encrypt(username, password)));
-        if (count < 1) {
-            throw new HintException("密码错误");
-        }
+    public boolean checkPassword(String username, String password) {
+        // 对密码进行加密后与数据库中的密码进行比对
+        int count = count(new QueryWrapper<AdminInformation>().eq(USERNAME, username).eq(PASSWORD, EncryptUtil.getEnpPassword(password)));
+        return count >= 1;
     }
 
     @Override
     @Transactional(rollbackFor = Exception.class)
     public boolean saveAdminInformation(AdminInformationSaveDTO dto) {
         int count = count(new QueryWrapper<AdminInformation>().eq(USERNAME, dto.getUsername()));
+
         if (count > 0) {
             throw new HintException("用户名已经存在");
         }
+
         dto.setPassword(HashUtils.encrypt(dto.getUsername(), dto.getPassword()));
         return save(modelMapper.map(dto, AdminInformation.class));
     }
@@ -67,10 +69,13 @@ public class AdminInformationServiceImpl extends ServiceImpl<AdminInformationMap
 
     @Override
     public AdminInformationDTO getAdminInformationByUsername(String username) {
-        AdminInformation adminInformation = getOne(new QueryWrapper<AdminInformation>().eq(USERNAME, username));
+        AdminInformation adminInformation = getOne(new QueryWrapper<AdminInformation>()
+                .select(ID, USERNAME, ROLE).eq(USERNAME, username));
+
         if (adminInformation != null) {
             return modelMapper.map(adminInformation, AdminInformationDTO.class);
         }
+
         return null;
     }
 

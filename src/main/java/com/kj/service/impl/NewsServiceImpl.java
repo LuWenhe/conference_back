@@ -131,8 +131,13 @@ public class NewsServiceImpl extends ServiceImpl<NewsMapper, News> implements Ne
 
     @Override
     public NewsQueryDTO getNewByNewCategoryId(Integer newCategoryId) {
-        News one = getOne(new QueryWrapper<News>().select(ID, TITLE, RELEASE_TIME, HTML_CONTENT).eq(NEWS_CATEGORY_ID, newCategoryId));
-        return modelMapper.map(one, NewsQueryDTO.class);
+        News news = getOne(new QueryWrapper<News>().select(ID, TITLE, RELEASE_TIME, HTML_CONTENT).eq(NEWS_CATEGORY_ID, newCategoryId));
+
+        if (news == null) {
+            return null;
+        }
+
+        return modelMapper.map(news, NewsQueryDTO.class);
     }
 
     @Override
