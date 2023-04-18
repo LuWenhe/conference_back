@@ -26,7 +26,7 @@ public class InterceptorConfig implements WebMvcConfigurer {
                 // 拦截的地址, 需要进入拦截器类
                 .addPathPatterns("/**")
                 // 放行的地址
-                .excludePathPatterns("/login");
+                .excludePathPatterns("/login", "/news/**", "/news_category/**");
     }
 
 }

@@ -26,9 +26,9 @@ mybatis-plus:
     map-underscore-to-camel-case: true
     # 枚举映射
     default-enum-type-handler: org.apache.ibatis.type.EnumOrdinalTypeHandler
-image:
-  url: http://localhost:8084
-  directory: D:/Projects/ActualProjects/conference/image
 #image:
-#  url: http://124.71.143.3
-#  directory: /home/conference/image
+#  url: http://localhost:8084
+#  directory: D:/Projects/ActualProjects/conference/image
+image:
+  url: http://www.icdske.com
+  directory: /home/conference/image
