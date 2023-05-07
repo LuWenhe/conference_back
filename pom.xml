@@ -8,11 +8,11 @@
         <version>2.5.3</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.kj</groupId>
+    <groupId>edu.conf</groupId>
     <artifactId>conference_back</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>conference_back</name>
-    <description>新闻与传播学院网站</description>
+    <description>国际会议网站</description>
     <properties>
         <java.version>1.8</java.version>
     </properties>
@@ -102,6 +102,16 @@
             <groupId>com.auth0</groupId>
             <artifactId>java-jwt</artifactId>
             <version>3.18.2</version>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.78</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.7</version>
         </dependency>
     </dependencies>
 

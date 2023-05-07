@@ -20,7 +20,7 @@ spring:
       max-request-size: 10MB
 mybatis-plus:
   # 枚举类所在包
-  type-enums-package: com.kj.enums
+  type-enums-package: edu.conf.enums
   configuration:
     # 开启驼峰命名规则
     map-underscore-to-camel-case: true
