@@ -24,7 +24,6 @@ public class News {
     private String title;              // 标题
     private Date releaseTime;          // 新闻发布时间
     private Integer hits;              // 点击率
-    private String content;            // 内容
     private String mdContent;
     private String htmlContent;
     private Integer newsCategoryId;    // 文章所属类别

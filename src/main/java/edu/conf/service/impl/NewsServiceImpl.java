@@ -10,7 +10,7 @@ import edu.conf.enums.DisplayContent;
 import edu.conf.exception.HintException;
 import edu.conf.mapper.NewsCategoryMapper;
 import edu.conf.mapper.NewsMapper;
-import edu.conf.utils.ImgUtils;
+import edu.conf.utils.ImageUtils;
 import edu.conf.service.NewsCategoryService;
 import edu.conf.service.NewsService;
 import edu.conf.dto.*;
@@ -55,13 +55,13 @@ public class NewsServiceImpl extends ServiceImpl<NewsMapper, News> implements Ne
     }
 
     @Override
-    public String saveImage(NewsAddDTO dto, String imageDirectory) throws IOException {
-        return ImgUtils.uploadImage(dto.getPictureFile(), imageDirectory);
+    public String saveMDImage(NewsAddDTO dto, String imageDirectory) throws IOException {
+        return ImageUtils.uploadImage(dto.getPictureFile(), imageDirectory, true);
     }
 
     @Override
-    public boolean deleteImage(NewsAddDTO dto, String imageDirectory) throws IOException {
-        return ImgUtils.deleteImage(dto.getPictureFile(), imageDirectory);
+    public boolean deleteMDImage(NewsAddDTO dto, String imageDirectory) {
+        return ImageUtils.deleteImage(dto.getPictureFile(), imageDirectory);
     }
 
     @Override
@@ -99,7 +99,7 @@ public class NewsServiceImpl extends ServiceImpl<NewsMapper, News> implements Ne
 
         // 需要修改图片
         if (dto.getPictureFile() != null) {
-            String s = ImgUtils.uploadImage(dto.getPictureFile(), imageDirectory);
+            String s = ImageUtils.uploadImage(dto.getPictureFile(), imageDirectory, true);
             dto.setPicturePath(s);
         }
 
@@ -109,7 +109,8 @@ public class NewsServiceImpl extends ServiceImpl<NewsMapper, News> implements Ne
     @Override
     public NewsPaging getNewsListByNewsCategoryId(Integer newsCategoryId, Integer current, Integer size) {
         Page<News> page = page(new Page<>(current, size),
-                new QueryWrapper<News>().select(ID, TITLE, RELEASE_TIME, PICTURE_PATH).eq(NEWS_CATEGORY_ID, newsCategoryId).orderByDesc(RELEASE_TIME));
+                new QueryWrapper<News>().select(ID, TITLE, RELEASE_TIME, PICTURE_PATH)
+                        .eq(NEWS_CATEGORY_ID, newsCategoryId).orderByDesc(RELEASE_TIME));
         NewsPaging newsPaging = modelMapper.map(page, NewsPaging.class);
         List<News> records = page.getRecords();
         newsPaging.setRecords(modelMapper.map(records, new TypeToken<List<NewsQueryListDTO>>(){}.getType()));
@@ -131,7 +132,8 @@ public class NewsServiceImpl extends ServiceImpl<NewsMapper, News> implements Ne
 
     @Override
     public NewsQueryDTO getNewByNewCategoryId(Integer newCategoryId) {
-        News news = getOne(new QueryWrapper<News>().select(ID, TITLE, RELEASE_TIME, HTML_CONTENT).eq(NEWS_CATEGORY_ID, newCategoryId));
+        News news = getOne(new QueryWrapper<News>().select(ID, TITLE, RELEASE_TIME, HTML_CONTENT)
+                .eq(NEWS_CATEGORY_ID, newCategoryId));
 
         if (news == null) {
             return null;
@@ -142,7 +144,8 @@ public class NewsServiceImpl extends ServiceImpl<NewsMapper, News> implements Ne
 
     @Override
     public NewsPaging fuzzyQueryListByTitle(String title, Integer current, Integer size) {
-        Page<News> page = page(new Page<>(current, size), new QueryWrapper<News>().select(ID, TITLE, RELEASE_TIME, PICTURE_PATH)
+        Page<News> page = page(new Page<>(current, size), new QueryWrapper<News>()
+                .select(ID, TITLE, RELEASE_TIME, PICTURE_PATH)
                 .like(TITLE, title).orderByDesc(RELEASE_TIME));
         NewsPaging newsPaging = modelMapper.map(page, NewsPaging.class);
         List<News> records = page.getRecords();
@@ -154,7 +157,9 @@ public class NewsServiceImpl extends ServiceImpl<NewsMapper, News> implements Ne
      * 不存在 NewsCategory
      */
     private boolean nonentityNewsCategory(Integer newsCategoryId) {
-        Integer count = newsCategoryMapper.selectCount(new QueryWrapper<NewsCategory>().eq(NewsCategoryService.ID, newsCategoryId));
+        Integer count = newsCategoryMapper.selectCount(new QueryWrapper<NewsCategory>()
+                .eq(NewsCategoryService.ID, newsCategoryId));
         return count < 1;
     }
+
 }

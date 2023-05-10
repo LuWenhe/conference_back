@@ -16,7 +16,6 @@ public interface NewsService extends IService<News> {
     String TITLE = "title";
     String RELEASE_TIME = "release_time";
     String HITS = "hits";
-    String CONTENT = "content";
     String HTML_CONTENT = "html_content";
     String MD_CONTENT = "md_content";
     String NEWS_CATEGORY_ID = "news_category_id";
@@ -29,17 +28,17 @@ public interface NewsService extends IService<News> {
     boolean saveNews(NewsAddDTO dto) throws IOException;
 
     /**
-     * 添加markdown中的图片
+     * 添加Markdown中的图片
      */
-    String saveImage(NewsAddDTO dto, String imageDirectory) throws IOException;
+    String saveMDImage(NewsAddDTO dto, String imageDirectory) throws IOException;
 
     /**
-     * 删除markdown中的图片
+     * 删除Markdown中的图片
      */
-    boolean deleteImage(NewsAddDTO dto, String imageDirectory) throws IOException;
+    boolean deleteMDImage(NewsAddDTO dto, String imageDirectory) throws IOException;
 
     /**
-     * 删除新闻根据id
+     * 根据id删除新闻
      */
     boolean removeNews(Integer id);
 

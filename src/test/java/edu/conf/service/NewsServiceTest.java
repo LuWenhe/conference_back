@@ -4,6 +4,8 @@ import edu.conf.dto.NewsQueryDTO;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.core.io.InputStreamSource;
+import org.springframework.web.multipart.MultipartFile;
 
 @SpringBootTest
 class NewsServiceTest {
@@ -19,8 +21,13 @@ class NewsServiceTest {
 
     @Test
     void getNewListByNewsCategoryId() {
-        NewsQueryDTO newByNewCategoryId = newsService.getNewByNewCategoryId(309);
+        NewsQueryDTO newByNewCategoryId = newsService.getNewByNewCategoryId(38);
         System.out.println(newByNewCategoryId);
+    }
+
+    @Test
+    void test() {
+
     }
 
 }

@@ -20,7 +20,6 @@ public class NewsUpdateVO {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date releaseTime;
     private Integer hits;
-    private String content;
     private String mdContent;
     private String htmlContent;
     private Integer newsCategoryId;

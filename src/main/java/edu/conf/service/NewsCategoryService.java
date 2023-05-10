@@ -11,15 +11,10 @@ import java.util.List;
 public interface NewsCategoryService extends IService<NewsCategory> {
 
     String ID = "id";
-
     String NAME = "name";
-
     String NEWS_TYPE_ID = "news_type_id";
-
     String DISPLAY_CONTENT = "display_content";
-
     String CREATE_TIME = "create_time";
-
     String UPDATE_TIME = "update_time";
 
     /**
@@ -43,7 +38,7 @@ public interface NewsCategoryService extends IService<NewsCategory> {
     List<NewsCategoryQueryAllDTO> queryAll();
 
     /**
-     * 按 NEWS_TYPE_ID 查找新闻类别
+     * 按news_type_id查找新闻类别
      */
     List<NewsCategoryDTO> queryNewCategoryByNewsTypeDd(Integer newsTypeId);
 

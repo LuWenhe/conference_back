@@ -52,33 +52,37 @@ public class NewsCategoryServiceImpl extends ServiceImpl<NewsCategoryMapper, New
 
     @Override
     public List<NewsCategoryQueryAllDTO> queryAll() {
-        List<NewsCategory> list = list(new QueryWrapper<NewsCategory>().select(ID, NAME, NEWS_TYPE_ID, DISPLAY_CONTENT));
+        List<NewsCategory> list = list(new QueryWrapper<NewsCategory>()
+                .select(ID, NAME, NEWS_TYPE_ID, DISPLAY_CONTENT));
         return list.stream().map(this::newsTypeIdToString).collect(Collectors.toList());
     }
 
     @Override
     public List<NewsCategoryDTO> queryNewCategoryByNewsTypeDd(Integer newsTypeId) {
-        List<NewsCategory> list = list(new QueryWrapper<NewsCategory>().select(ID, NAME, DISPLAY_CONTENT)
-                .eq(NEWS_TYPE_ID, newsTypeId));
+        List<NewsCategory> list = list(new QueryWrapper<NewsCategory>()
+                .select(ID, NAME, DISPLAY_CONTENT).eq(NEWS_TYPE_ID, newsTypeId));
+
         return modelMapper.map(list, new TypeToken<List<NewsCategoryDTO>>(){}.getType());
     }
-
 
     /**
      * 不存在 NewsType
      */
     private boolean nonentityNewsType(Integer newsTypeId) {
-        Integer count = newsTypeMapper.selectCount(new QueryWrapper<NewsType>().eq(NewsTypeService.ID, newsTypeId));
+        Integer count = newsTypeMapper.selectCount(new QueryWrapper<NewsType>()
+                .eq(NewsTypeService.ID, newsTypeId));
         return count < 1;
     }
 
     /**
-     * 通过NewsType 的 ID 获取 Name
+     * 通过NewsType的ID获取Name
      */
     public NewsCategoryQueryAllDTO newsTypeIdToString(NewsCategory newsCategory) {
-        String name = newsTypeMapper.selectOne(new QueryWrapper<NewsType>().select(NewsTypeService.NAME).eq(NewsTypeService.ID, newsCategory.getNewsTypeId())).getName();
+        String name = newsTypeMapper.selectOne(new QueryWrapper<NewsType>().select(NewsTypeService.NAME)
+                .eq(NewsTypeService.ID, newsCategory.getNewsTypeId())).getName();
         NewsCategoryQueryAllDTO map = modelMapper.map(newsCategory, NewsCategoryQueryAllDTO.class);
         map.setNewsTypeName(name);
         return map;
     }
+
 }

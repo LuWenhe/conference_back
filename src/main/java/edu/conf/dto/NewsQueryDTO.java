@@ -18,7 +18,6 @@ public class NewsQueryDTO {
     private String title;
     private Date releaseTime;
     private Integer hits;
-    private String content;
     private String mdContent;
     private String htmlContent;
 

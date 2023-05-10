@@ -14,4 +14,5 @@ public class AdminInformationUpdateDTO {
 
     private String username;
     private String password;
+
 }

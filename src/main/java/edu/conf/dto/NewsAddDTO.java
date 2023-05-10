@@ -19,7 +19,6 @@ public class NewsAddDTO {
     private String picturePath;
     private String title;
     private Date releaseTime;
-    private String content;
     private String mdContent;
     private String htmlContent;
     private Integer newsCategoryId;

@@ -4,7 +4,7 @@ import edu.conf.annotation.LogAnnotation;
 import edu.conf.dto.NewsAddDTO;
 import edu.conf.dto.NewsQueryDTO;
 import edu.conf.dto.NewsUpdateDTO;
-import edu.conf.utils.ImgUtils;
+import edu.conf.utils.ImageUtils;
 import edu.conf.service.NewsService;
 import edu.conf.vo.Result;
 import edu.conf.vo.news.NewsAddVO;
@@ -50,7 +50,7 @@ public class NewsHandler {
     @LogAnnotation(operator = "根据category_id获取信息")
     @ApiOperation("根据new_category的id获取新闻信息")
     @GetMapping("/get/{newCategoryId}")
-    public Result getNewByNewCategoryId(@PathVariable("newCategoryId") Integer newCategoryId) {
+    public Result getNewsByNewCategoryId(@PathVariable("newCategoryId") Integer newCategoryId) {
         NewsQueryDTO newsQueryDTO = newsService.getNewByNewCategoryId(newCategoryId);
 
         if (newsQueryDTO == null) {
@@ -81,10 +81,10 @@ public class NewsHandler {
         String picturePath = "";
 
         // 如果图片存在, 则直接返回图片
-        if (ImgUtils.ifExistsPicture(pictureFile, imageDirectory)) {
+        if (ImageUtils.ifExistsPicture(pictureFile, imageDirectory)) {
             picturePath = imageURL + "/image/" + pictureFile.getOriginalFilename();
         } else {
-            String savePath = newsService.saveImage(newsAddDTO, imageDirectory);
+            String savePath = newsService.saveMDImage(newsAddDTO, imageDirectory);
             picturePath = imageURL + "/" + savePath;
         }
 
@@ -97,7 +97,7 @@ public class NewsHandler {
     public Result deleteImage(@RequestParam("image") MultipartFile pictureFile) {
         NewsAddDTO newsAddDTO = new NewsAddDTO();
         newsAddDTO.setPictureFile(pictureFile);
-        boolean isDelete = ImgUtils.deleteImage(pictureFile, imageDirectory);
+        boolean isDelete = ImageUtils.deleteImage(pictureFile, imageDirectory);
         return new Result().ok().data(isDelete);
     }
 
@@ -127,7 +127,8 @@ public class NewsHandler {
     @ApiOperation(value = "分页查询指定小标题下的新闻列表，可指定当前页和每页条数")
     @PostMapping("/list")
     public Result pagingQueryListByNewsCategoryId(PagingQueryListByNewsCategoryIdVO vo) {
-        return new Result().ok().data(newsService.getNewsListByNewsCategoryId(vo.getNewsCategoryId(), vo.getCurrent(), vo.getSize()));
+        return new Result().ok().data(newsService.getNewsListByNewsCategoryId(vo.getNewsCategoryId(),
+                vo.getCurrent(), vo.getSize()));
     }
 
     @ApiOperation(value = "根据新闻标题模糊查询新闻列表，分页查新")

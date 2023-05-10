@@ -21,7 +21,6 @@ public class NewsUpdateDTO {
     private String title;
     private Date releaseTime;
     private Integer hits;
-    private String content;
     private String mdContent;
     private String htmlContent;
     private Integer newsCategoryId;

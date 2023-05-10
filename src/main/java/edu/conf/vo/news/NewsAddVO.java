@@ -18,7 +18,6 @@ public class NewsAddVO {
     private String title;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date releaseTime;
-    private String content;
     private String mdContent;
     private String htmlContent;
     private Integer newsCategoryId;

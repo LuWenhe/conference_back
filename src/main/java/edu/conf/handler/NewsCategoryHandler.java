@@ -51,7 +51,7 @@ public class NewsCategoryHandler {
         return new Result().ok().data(newsCategoryService.queryAll());
     }
 
-    @ApiOperation(value = "查询新闻类别列表根据新闻类型id（大标题id）")
+    @ApiOperation(value = "根据newsTypeId查询新闻类别列表")
     @GetMapping("/list/{typeId}")
     public Result queryByNewsTypeId(@PathVariable("typeId") Integer id) {
         List<NewsCategoryDTO> list = newsCategoryService.queryNewCategoryByNewsTypeDd(id);
