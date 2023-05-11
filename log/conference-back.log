@@ -1,0 +1,910 @@
+2023-05-11 15:16:27.275 conference [restartedMain] INFO  edu.conf.ConferenceBackApplication - Starting ConferenceBackApplication using Java 1.8.0_311 on DESKTOP-MM7P5T2 with PID 9772 (D:\Projects\ActualProjects\conference\conference_back\target\classes started by luwen in D:\Projects\ActualProjects\conference\conference_back)
+2023-05-11 15:16:27.276 conference [restartedMain] INFO  edu.conf.ConferenceBackApplication - The following profiles are active: dev
+2023-05-11 15:16:27.310 conference [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-05-11 15:16:27.311 conference [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-05-11 15:16:27.879 conference [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2023-05-11 15:16:27.881 conference [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2023-05-11 15:16:27.900 conference [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 10 ms. Found 0 Redis repository interfaces.
+2023-05-11 15:16:28.382 conference [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 7070 (http)
+2023-05-11 15:16:28.388 conference [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-7070"]
+2023-05-11 15:16:28.388 conference [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2023-05-11 15:16:28.389 conference [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.50]
+2023-05-11 15:16:28.390 conference [restartedMain] INFO  o.a.c.core.AprLifecycleListener - Loaded Apache Tomcat Native library [1.2.31] using APR version [1.7.0].
+2023-05-11 15:16:28.390 conference [restartedMain] INFO  o.a.c.core.AprLifecycleListener - APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [true].
+2023-05-11 15:16:28.390 conference [restartedMain] INFO  o.a.c.core.AprLifecycleListener - APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2023-05-11 15:16:28.392 conference [restartedMain] INFO  o.a.c.core.AprLifecycleListener - OpenSSL successfully initialized [OpenSSL 1.1.1l  24 Aug 2021]
+2023-05-11 15:16:28.516 conference [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2023-05-11 15:16:28.516 conference [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1205 ms
+2023-05-11 15:16:28.627 conference [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
+2023-05-11 15:16:28.690 conference [restartedMain] INFO  c.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2023-05-11 15:16:29.479 conference [restartedMain] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2023-05-11 15:16:29.588 conference [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2023-05-11 15:16:29.780 conference [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-7070"]
+2023-05-11 15:16:29.791 conference [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 7070 (http) with context path ''
+2023-05-11 15:16:29.792 conference [restartedMain] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - Context refreshed
+2023-05-11 15:16:29.802 conference [restartedMain] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+2023-05-11 15:16:29.821 conference [restartedMain] INFO  s.d.s.w.s.ApiListingReferenceScanner - Scanning for api listing references
+2023-05-11 15:16:29.940 conference [restartedMain] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: queryAllUsingGET_1
+2023-05-11 15:16:29.955 conference [restartedMain] INFO  edu.conf.ConferenceBackApplication - Started ConferenceBackApplication in 2.979 seconds (JVM running for 3.56)
+2023-05-11 15:16:34.912 conference [http-nio-7070-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-05-11 15:16:34.912 conference [http-nio-7070-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2023-05-11 15:16:34.914 conference [http-nio-7070-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2023-05-11 15:16:35.443 conference [http-nio-7070-exec-6] INFO  edu.conf.aspect.LogAspect - {"id":"cf1f7216-e64d-43b7-b585-e561d33f03a3","uri":"/news/get/43","methodName":"GET","args":[43],"path":"edu.conf.handler.NewsHandler.getNewsByNewCategoryId","referer":"http://localhost:8081/","remoteAddr":"0:0:0:0:0:0:0:1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"}
+2023-05-11 15:16:35.443 conference [http-nio-7070-exec-2] INFO  edu.conf.aspect.LogAspect - {"id":"96e42c01-fb28-4e8d-b47e-7d11a26940e6","uri":"/news/get/44","methodName":"GET","args":[44],"path":"edu.conf.handler.NewsHandler.getNewsByNewCategoryId","referer":"http://localhost:8081/","remoteAddr":"0:0:0:0:0:0:0:1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"}
+2023-05-11 15:16:35.443 conference [http-nio-7070-exec-7] INFO  edu.conf.aspect.LogAspect - {"id":"3ce3fb42-0b83-41ae-b547-3757b7464219","uri":"/news/get/42","methodName":"GET","args":[42],"path":"edu.conf.handler.NewsHandler.getNewsByNewCategoryId","referer":"http://localhost:8081/","remoteAddr":"0:0:0:0:0:0:0:1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"}
+2023-05-11 15:16:35.443 conference [http-nio-7070-exec-9] INFO  edu.conf.aspect.LogAspect - {"id":"be30196a-98df-4f81-886f-b0b1d327bd72","uri":"/news/get/46","methodName":"GET","args":[46],"path":"edu.conf.handler.NewsHandler.getNewsByNewCategoryId","referer":"http://localhost:8081/","remoteAddr":"0:0:0:0:0:0:0:1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"}
+2023-05-11 15:17:08.416 conference [http-nio-7070-exec-10] INFO  edu.conf.aspect.LogAspect - {"id":"21189a1f-90d6-4d02-8a2e-3c7016ac50d1","uri":"/news/get/47","methodName":"GET","args":[47],"path":"edu.conf.handler.NewsHandler.getNewsByNewCategoryId","referer":"http://localhost:8081/","remoteAddr":"0:0:0:0:0:0:0:1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"}
+2023-05-11 15:18:25.670 conference [http-nio-7070-exec-3] INFO  edu.conf.aspect.LogAspect - {"id":"484c3e90-4ef9-44c0-adcf-7c7c52a5c9b3","uri":"/news/get/48","methodName":"GET","args":[48],"path":"edu.conf.handler.NewsHandler.getNewsByNewCategoryId","referer":"http://localhost:8081/","remoteAddr":"0:0:0:0:0:0:0:1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"}
+2023-05-11 15:19:51.057 conference [SpringApplicationShutdownHook] INFO  c.alibaba.druid.pool.DruidDataSource - {dataSource-1} closing ...
+2023-05-11 15:19:51.059 conference [SpringApplicationShutdownHook] INFO  c.alibaba.druid.pool.DruidDataSource - {dataSource-1} closed
+2023-05-11 15:31:40.527 conference [restartedMain] INFO  edu.conf.ConferenceBackApplication - Starting ConferenceBackApplication using Java 1.8.0_311 on DESKTOP-MM7P5T2 with PID 15968 (D:\Projects\ActualProjects\conference\conference_back\target\classes started by luwen in D:\Projects\ActualProjects\conference\conference_back)
+2023-05-11 15:31:40.529 conference [restartedMain] INFO  edu.conf.ConferenceBackApplication - The following profiles are active: dev
+2023-05-11 15:31:40.564 conference [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-05-11 15:31:40.564 conference [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-05-11 15:31:41.171 conference [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2023-05-11 15:31:41.173 conference [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2023-05-11 15:31:41.193 conference [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 10 ms. Found 0 Redis repository interfaces.
+2023-05-11 15:31:41.697 conference [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 7070 (http)
+2023-05-11 15:31:41.703 conference [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-7070"]
+2023-05-11 15:31:41.703 conference [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2023-05-11 15:31:41.703 conference [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.50]
+2023-05-11 15:31:41.705 conference [restartedMain] INFO  o.a.c.core.AprLifecycleListener - Loaded Apache Tomcat Native library [1.2.31] using APR version [1.7.0].
+2023-05-11 15:31:41.705 conference [restartedMain] INFO  o.a.c.core.AprLifecycleListener - APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [true].
+2023-05-11 15:31:41.705 conference [restartedMain] INFO  o.a.c.core.AprLifecycleListener - APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2023-05-11 15:31:41.707 conference [restartedMain] INFO  o.a.c.core.AprLifecycleListener - OpenSSL successfully initialized [OpenSSL 1.1.1l  24 Aug 2021]
+2023-05-11 15:31:41.799 conference [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2023-05-11 15:31:41.799 conference [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1234 ms
+2023-05-11 15:31:41.907 conference [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
+2023-05-11 15:31:41.969 conference [restartedMain] INFO  c.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2023-05-11 15:31:42.756 conference [restartedMain] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2023-05-11 15:31:42.872 conference [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2023-05-11 15:31:43.099 conference [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-7070"]
+2023-05-11 15:31:43.113 conference [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 7070 (http) with context path ''
+2023-05-11 15:31:43.114 conference [restartedMain] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - Context refreshed
+2023-05-11 15:31:43.135 conference [restartedMain] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+2023-05-11 15:31:43.158 conference [restartedMain] INFO  s.d.s.w.s.ApiListingReferenceScanner - Scanning for api listing references
+2023-05-11 15:31:43.294 conference [restartedMain] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: queryAllUsingGET_1
+2023-05-11 15:31:43.318 conference [restartedMain] INFO  edu.conf.ConferenceBackApplication - Started ConferenceBackApplication in 3.106 seconds (JVM running for 3.738)
+2023-05-11 15:32:39.462 conference [http-nio-7070-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-05-11 15:32:39.462 conference [http-nio-7070-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2023-05-11 15:32:39.463 conference [http-nio-7070-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2023-05-11 15:32:39.903 conference [http-nio-7070-exec-2] INFO  edu.conf.aspect.LogAspect - {"id":"8a7ab644-f1a7-4a3b-ac31-0ebc55e2a88a","uri":"/login","name":"POST","args":[{"password":"nuist@305","username":"admin"}],"path":"edu.conf.handler.LoginHandler.login","referer":"http://localhost:81/","remoteAddr":"0:0:0:0:0:0:0:1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"}
+2023-05-11 15:32:43.306 conference [http-nio-7070-exec-4] INFO  edu.conf.aspect.LogAspect - {"id":"1484058d-7092-49f9-bf87-eab79baec414","uri":"/news/get/42","name":"GET","args":[42],"path":"edu.conf.handler.NewsHandler.getNewsByNewCategoryId","referer":"http://localhost:81/","remoteAddr":"0:0:0:0:0:0:0:1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"}
+2023-05-11 15:32:44.246 conference [http-nio-7070-exec-6] INFO  edu.conf.aspect.LogAspect - {"id":"af2e7839-fdc2-4bea-8caf-f67620c822bc","uri":"/news/main/225","name":"GET","args":[225],"path":"edu.conf.handler.NewsHandler.queryNewsById","referer":"http://localhost:81/","remoteAddr":"0:0:0:0:0:0:0:1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"}
+2023-05-11 15:33:39.310 conference [http-nio-7070-exec-8] INFO  edu.conf.aspect.LogAspect - {"id":"b06c4b55-85c5-4740-b616-7464fd62d857","uri":"/news/update","name":"POST","args":[{"htmlContent":"<p><font color=\"#0066CC\"><strong>2023 1th International Conference on Data Science and Knowledge Engineering (ICDSKE 2023)</strong> </font>will be held on August 12, 2023 in Xiong’an New Area in Beijing, China. The aim of ICDSKE is to provide a platform for researchers, engineers, academicians as well as industrial professionals from all over the world to present their research results and development activities in Data Science and Knowledge Engineering. This conference provides opportunities for the delegates to exchange new ideas and application experiences face to face, to establish business or research relations and to find global partners for future collaboration.</p>\n","id":225,"mdContent":"<font color=#0066CC>**2023 1th International Conference on Data Science and Knowledge Engineering (ICDSKE 2023)** </font>will be held on August 12, 2023 in Xiong’an New Area in Beijing, China. The aim of ICDSKE is to provide a platform for researchers, engineers, academicians as well as industrial professionals from all over the world to present their research results and development activities in Data Science and Knowledge Engineering. This conference provides opportunities for the delegates to exchange new ideas and application experiences face to face, to establish business or research relations and to find global partners for future collaboration.","releaseTime":1678636800000,"title":"Introduction"}],"path":"edu.conf.handler.NewsHandler.updateNews","referer":"http://localhost:81/","remoteAddr":"0:0:0:0:0:0:0:1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"}
+2023-05-11 15:33:50.820 conference [http-nio-7070-exec-9] INFO  edu.conf.aspect.LogAspect - {"id":"f4338188-1354-4d79-a277-5a9566c2fc69","uri":"/news/get/29","name":"GET","args":[29],"path":"edu.conf.handler.NewsHandler.getNewsByNewCategoryId","referer":"http://localhost:81/","remoteAddr":"0:0:0:0:0:0:0:1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"}
+2023-05-11 15:33:53.777 conference [http-nio-7070-exec-2] INFO  edu.conf.aspect.LogAspect - {"id":"d303fa06-55ef-44b5-b12c-758654c18267","uri":"/news/main/234","name":"GET","args":[234],"path":"edu.conf.handler.NewsHandler.queryNewsById","referer":"http://localhost:81/","remoteAddr":"0:0:0:0:0:0:0:1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"}
+2023-05-11 15:34:23.708 conference [http-nio-7070-exec-3] INFO  edu.conf.aspect.LogAspect - {"id":"943401b5-bd40-4773-8a16-60c38f3ae067","uri":"/news/update","name":"POST","args":[{"htmlContent":"<p><strong>Topics include but are not limited to the following areas:</strong>\n<img src=\"https://img1.baidu.com/it/u=413643897,2296924942&amp;fm=253&amp;fmt=auto&amp;app=138&amp;f=JPEG?w=800&amp;h=500\" alt=\"hello\" /></p>\n","id":234,"mdContent":"**Topics include but are not limited to the following areas:**\n![hello](https://img1.baidu.com/it/u=413643897,2296924942&fm=253&fmt=auto&app=138&f=JPEG?w=800&h=500)","releaseTime":1680105600000,"title":"Call for papers"}],"path":"edu.conf.handler.NewsHandler.updateNews","referer":"http://localhost:81/","remoteAddr":"0:0:0:0:0:0:0:1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"}
+2023-05-11 15:41:02.628 conference [SpringApplicationShutdownHook] INFO  c.alibaba.druid.pool.DruidDataSource - {dataSource-1} closing ...
+2023-05-11 15:41:02.630 conference [SpringApplicationShutdownHook] INFO  c.alibaba.druid.pool.DruidDataSource - {dataSource-1} closed
+2023-05-11 15:41:07.830 conference [restartedMain] INFO  edu.conf.ConferenceBackApplication - Starting ConferenceBackApplication using Java 1.8.0_311 on DESKTOP-MM7P5T2 with PID 1368 (D:\Projects\ActualProjects\conference\conference_back\target\classes started by luwen in D:\Projects\ActualProjects\conference\conference_back)
+2023-05-11 15:41:07.831 conference [restartedMain] INFO  edu.conf.ConferenceBackApplication - The following profiles are active: dev
+2023-05-11 15:41:07.871 conference [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-05-11 15:41:07.871 conference [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-05-11 15:41:08.463 conference [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2023-05-11 15:41:08.464 conference [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2023-05-11 15:41:08.483 conference [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 9 ms. Found 0 Redis repository interfaces.
+2023-05-11 15:41:08.983 conference [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 7070 (http)
+2023-05-11 15:41:08.989 conference [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-7070"]
+2023-05-11 15:41:08.989 conference [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2023-05-11 15:41:08.989 conference [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.50]
+2023-05-11 15:41:08.990 conference [restartedMain] INFO  o.a.c.core.AprLifecycleListener - Loaded Apache Tomcat Native library [1.2.31] using APR version [1.7.0].
+2023-05-11 15:41:08.991 conference [restartedMain] INFO  o.a.c.core.AprLifecycleListener - APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [true].
+2023-05-11 15:41:08.991 conference [restartedMain] INFO  o.a.c.core.AprLifecycleListener - APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2023-05-11 15:41:08.993 conference [restartedMain] INFO  o.a.c.core.AprLifecycleListener - OpenSSL successfully initialized [OpenSSL 1.1.1l  24 Aug 2021]
+2023-05-11 15:41:09.093 conference [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2023-05-11 15:41:09.093 conference [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1222 ms
+2023-05-11 15:41:09.207 conference [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
+2023-05-11 15:41:09.270 conference [restartedMain] INFO  c.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2023-05-11 15:41:10.052 conference [restartedMain] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2023-05-11 15:41:10.165 conference [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2023-05-11 15:41:10.353 conference [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-7070"]
+2023-05-11 15:41:10.364 conference [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 7070 (http) with context path ''
+2023-05-11 15:41:10.365 conference [restartedMain] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - Context refreshed
+2023-05-11 15:41:10.376 conference [restartedMain] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+2023-05-11 15:41:10.395 conference [restartedMain] INFO  s.d.s.w.s.ApiListingReferenceScanner - Scanning for api listing references
+2023-05-11 15:41:10.507 conference [restartedMain] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: queryAllUsingGET_1
+2023-05-11 15:41:10.521 conference [restartedMain] INFO  edu.conf.ConferenceBackApplication - Started ConferenceBackApplication in 2.985 seconds (JVM running for 3.588)
+2023-05-11 15:41:15.948 conference [http-nio-7070-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-05-11 15:41:15.948 conference [http-nio-7070-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2023-05-11 15:41:15.949 conference [http-nio-7070-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2023-05-11 15:41:16.033 conference [http-nio-7070-exec-2] INFO  edu.conf.aspect.LogAspect - {"args":[42],"id":"851da423-8855-4bed-b3f9-7e019bb8d0d6","name":"GET","path":"edu.conf.handler.NewsHandler.getNewsByNewCategoryId","referer":"http://localhost:81/","remoteAddr":"0:0:0:0:0:0:0:1","uri":"/news/get/42","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"}
+2023-05-11 15:41:18.626 conference [http-nio-7070-exec-4] INFO  edu.conf.aspect.LogAspect - {"args":[225],"id":"917a255a-e332-48cc-8600-f4eca29b14ea","name":"GET","path":"edu.conf.handler.NewsHandler.queryNewsById","referer":"http://localhost:81/","remoteAddr":"0:0:0:0:0:0:0:1","uri":"/news/main/225","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"}
+2023-05-11 15:42:09.044 conference [SpringApplicationShutdownHook] INFO  c.alibaba.druid.pool.DruidDataSource - {dataSource-1} closing ...
+2023-05-11 15:42:09.045 conference [SpringApplicationShutdownHook] INFO  c.alibaba.druid.pool.DruidDataSource - {dataSource-1} closed
+2023-05-11 15:42:12.902 conference [restartedMain] INFO  edu.conf.ConferenceBackApplication - Starting ConferenceBackApplication using Java 1.8.0_311 on DESKTOP-MM7P5T2 with PID 16220 (D:\Projects\ActualProjects\conference\conference_back\target\classes started by luwen in D:\Projects\ActualProjects\conference\conference_back)
+2023-05-11 15:42:12.904 conference [restartedMain] INFO  edu.conf.ConferenceBackApplication - The following profiles are active: dev
+2023-05-11 15:42:12.937 conference [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-05-11 15:42:12.937 conference [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-05-11 15:42:13.488 conference [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2023-05-11 15:42:13.490 conference [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2023-05-11 15:42:13.508 conference [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 9 ms. Found 0 Redis repository interfaces.
+2023-05-11 15:42:13.986 conference [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 7070 (http)
+2023-05-11 15:42:13.992 conference [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-7070"]
+2023-05-11 15:42:13.993 conference [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2023-05-11 15:42:13.993 conference [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.50]
+2023-05-11 15:42:13.994 conference [restartedMain] INFO  o.a.c.core.AprLifecycleListener - Loaded Apache Tomcat Native library [1.2.31] using APR version [1.7.0].
+2023-05-11 15:42:13.994 conference [restartedMain] INFO  o.a.c.core.AprLifecycleListener - APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [true].
+2023-05-11 15:42:13.994 conference [restartedMain] INFO  o.a.c.core.AprLifecycleListener - APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2023-05-11 15:42:13.996 conference [restartedMain] INFO  o.a.c.core.AprLifecycleListener - OpenSSL successfully initialized [OpenSSL 1.1.1l  24 Aug 2021]
+2023-05-11 15:42:14.088 conference [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2023-05-11 15:42:14.088 conference [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1150 ms
+2023-05-11 15:42:14.197 conference [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
+2023-05-11 15:42:14.259 conference [restartedMain] INFO  c.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2023-05-11 15:42:15.023 conference [restartedMain] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2023-05-11 15:42:15.130 conference [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2023-05-11 15:42:15.318 conference [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-7070"]
+2023-05-11 15:42:15.330 conference [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 7070 (http) with context path ''
+2023-05-11 15:42:15.331 conference [restartedMain] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - Context refreshed
+2023-05-11 15:42:15.341 conference [restartedMain] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+2023-05-11 15:42:15.361 conference [restartedMain] INFO  s.d.s.w.s.ApiListingReferenceScanner - Scanning for api listing references
+2023-05-11 15:42:15.472 conference [restartedMain] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: queryAllUsingGET_1
+2023-05-11 15:42:15.487 conference [restartedMain] INFO  edu.conf.ConferenceBackApplication - Started ConferenceBackApplication in 2.854 seconds (JVM running for 3.407)
+2023-05-11 15:42:41.232 conference [SpringApplicationShutdownHook] INFO  c.alibaba.druid.pool.DruidDataSource - {dataSource-1} closing ...
+2023-05-11 15:42:41.233 conference [SpringApplicationShutdownHook] INFO  c.alibaba.druid.pool.DruidDataSource - {dataSource-1} closed
+2023-05-11 15:42:45.254 conference [restartedMain] INFO  edu.conf.ConferenceBackApplication - Starting ConferenceBackApplication using Java 1.8.0_311 on DESKTOP-MM7P5T2 with PID 20236 (D:\Projects\ActualProjects\conference\conference_back\target\classes started by luwen in D:\Projects\ActualProjects\conference\conference_back)
+2023-05-11 15:42:45.255 conference [restartedMain] INFO  edu.conf.ConferenceBackApplication - The following profiles are active: dev
+2023-05-11 15:42:45.288 conference [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-05-11 15:42:45.289 conference [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-05-11 15:42:45.856 conference [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2023-05-11 15:42:45.857 conference [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2023-05-11 15:42:45.877 conference [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 10 ms. Found 0 Redis repository interfaces.
+2023-05-11 15:42:46.368 conference [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 7070 (http)
+2023-05-11 15:42:46.374 conference [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-7070"]
+2023-05-11 15:42:46.375 conference [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2023-05-11 15:42:46.375 conference [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.50]
+2023-05-11 15:42:46.376 conference [restartedMain] INFO  o.a.c.core.AprLifecycleListener - Loaded Apache Tomcat Native library [1.2.31] using APR version [1.7.0].
+2023-05-11 15:42:46.376 conference [restartedMain] INFO  o.a.c.core.AprLifecycleListener - APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [true].
+2023-05-11 15:42:46.376 conference [restartedMain] INFO  o.a.c.core.AprLifecycleListener - APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2023-05-11 15:42:46.378 conference [restartedMain] INFO  o.a.c.core.AprLifecycleListener - OpenSSL successfully initialized [OpenSSL 1.1.1l  24 Aug 2021]
+2023-05-11 15:42:46.477 conference [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2023-05-11 15:42:46.477 conference [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1188 ms
+2023-05-11 15:42:46.589 conference [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
+2023-05-11 15:42:46.649 conference [restartedMain] INFO  c.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2023-05-11 15:42:47.417 conference [restartedMain] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2023-05-11 15:42:47.523 conference [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2023-05-11 15:42:47.710 conference [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-7070"]
+2023-05-11 15:42:47.721 conference [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 7070 (http) with context path ''
+2023-05-11 15:42:47.722 conference [restartedMain] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - Context refreshed
+2023-05-11 15:42:47.733 conference [restartedMain] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+2023-05-11 15:42:47.752 conference [restartedMain] INFO  s.d.s.w.s.ApiListingReferenceScanner - Scanning for api listing references
+2023-05-11 15:42:47.866 conference [restartedMain] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: queryAllUsingGET_1
+2023-05-11 15:42:47.881 conference [restartedMain] INFO  edu.conf.ConferenceBackApplication - Started ConferenceBackApplication in 2.894 seconds (JVM running for 3.463)
+2023-05-11 15:43:11.237 conference [http-nio-7070-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-05-11 15:43:11.237 conference [http-nio-7070-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2023-05-11 15:43:11.238 conference [http-nio-7070-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2023-05-11 15:43:11.321 conference [http-nio-7070-exec-5] INFO  edu.conf.aspect.LogAspect - {"id":"b5095595-4b36-48a9-917b-4d8a3ac9e7c4","uri":"/news/get/47","operator":"根据category_id获取信息","name":"GET","args":[47],"path":"edu.conf.handler.NewsHandler.getNewsByNewCategoryId","referer":"http://localhost:81/","remoteAddr":"0:0:0:0:0:0:0:1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"}
+2023-05-11 15:43:12.665 conference [http-nio-7070-exec-4] INFO  edu.conf.aspect.LogAspect - {"id":"88365538-3c04-4c83-bd73-7488551763ad","uri":"/news/main/258","operator":"根据id获取信息","name":"GET","args":[258],"path":"edu.conf.handler.NewsHandler.queryNewsById","referer":"http://localhost:81/","remoteAddr":"0:0:0:0:0:0:0:1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"}
+2023-05-11 15:43:48.468 conference [http-nio-7070-exec-6] INFO  edu.conf.aspect.LogAspect - {"id":"4e4433f5-e3c7-45ad-8fb0-914da1196743","uri":"/news/get/35","operator":"根据category_id获取信息","name":"GET","args":[35],"path":"edu.conf.handler.NewsHandler.getNewsByNewCategoryId","referer":"http://localhost:81/","remoteAddr":"0:0:0:0:0:0:0:1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"}
+2023-05-11 15:43:51.205 conference [http-nio-7070-exec-9] INFO  edu.conf.aspect.LogAspect - {"id":"27b8acca-d837-4585-9f09-e207492349b3","uri":"/news/get/43","operator":"根据category_id获取信息","name":"GET","args":[43],"path":"edu.conf.handler.NewsHandler.getNewsByNewCategoryId","referer":"http://localhost:81/","remoteAddr":"0:0:0:0:0:0:0:1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"}
+2023-05-11 15:43:53.090 conference [http-nio-7070-exec-10] INFO  edu.conf.aspect.LogAspect - {"id":"c7eed540-26a9-4163-8bec-bc70317e38d7","uri":"/news/main/279","operator":"根据id获取信息","name":"GET","args":[279],"path":"edu.conf.handler.NewsHandler.queryNewsById","referer":"http://localhost:81/","remoteAddr":"0:0:0:0:0:0:0:1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"}
+2023-05-11 15:44:02.444 conference [http-nio-7070-exec-5] INFO  edu.conf.aspect.LogAspect - {"id":"2e03aea6-8165-4d02-8bf8-08a8ce93d233","uri":"/news/addImage","operator":"添加图片","name":"POST","args":[],"path":"edu.conf.handler.NewsHandler.addImage","referer":"http://localhost:81/","remoteAddr":"0:0:0:0:0:0:0:1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"}
+2023-05-11 15:44:02.445 conference [http-nio-7070-exec-5] INFO  edu.conf.handler.NewsHandler - imageURL:http://www.icdske.com
+2023-05-11 15:44:02.445 conference [http-nio-7070-exec-5] INFO  edu.conf.handler.NewsHandler - imageDirectory:/home/conference/image
+2023-05-11 15:44:02.460 conference [http-nio-7070-exec-5] ERROR edu.conf.aspect.LogAspect - {"id":"2e03aea6-8165-4d02-8bf8-08a8ce93d233"}
+edu.conf.exception.HintException: 上传的文件类型只能是:[jpeg, png]
+	at edu.conf.utils.ImageUtils.uploadImage(ImageUtils.java:32)
+	at edu.conf.service.impl.NewsServiceImpl.saveMDImage(NewsServiceImpl.java:59)
+	at edu.conf.service.impl.NewsServiceImpl$$FastClassBySpringCGLIB$$5f54619f.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688)
+	at edu.conf.service.impl.NewsServiceImpl$$EnhancerBySpringCGLIB$$3d6f0a57.saveMDImage(<generated>)
+	at edu.conf.handler.NewsHandler.addImage(NewsHandler.java:87)
+	at edu.conf.handler.NewsHandler$$FastClassBySpringCGLIB$$5daab9a1.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:779)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750)
+	at org.springframework.aop.aspectj.AspectJAfterThrowingAdvice.invoke(AspectJAfterThrowingAdvice.java:64)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:175)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750)
+	at org.springframework.aop.framework.adapter.MethodBeforeAdviceInterceptor.invoke(MethodBeforeAdviceInterceptor.java:58)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:175)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:692)
+	at edu.conf.handler.NewsHandler$$EnhancerBySpringCGLIB$$18ef649d.addImage(<generated>)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:197)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:141)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:106)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1064)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:228)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:163)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:190)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:163)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:190)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:163)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:190)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:163)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:190)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:163)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:143)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:382)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1723)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+2023-05-11 15:44:02.476 conference [http-nio-7070-exec-5] ERROR o.a.c.c.C.[.[.[.[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is HintException(code=null)] with root cause
+edu.conf.exception.HintException: 上传的文件类型只能是:[jpeg, png]
+	at edu.conf.utils.ImageUtils.uploadImage(ImageUtils.java:32)
+	at edu.conf.service.impl.NewsServiceImpl.saveMDImage(NewsServiceImpl.java:59)
+	at edu.conf.service.impl.NewsServiceImpl$$FastClassBySpringCGLIB$$5f54619f.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688)
+	at edu.conf.service.impl.NewsServiceImpl$$EnhancerBySpringCGLIB$$3d6f0a57.saveMDImage(<generated>)
+	at edu.conf.handler.NewsHandler.addImage(NewsHandler.java:87)
+	at edu.conf.handler.NewsHandler$$FastClassBySpringCGLIB$$5daab9a1.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:779)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750)
+	at org.springframework.aop.aspectj.AspectJAfterThrowingAdvice.invoke(AspectJAfterThrowingAdvice.java:64)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:175)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750)
+	at org.springframework.aop.framework.adapter.MethodBeforeAdviceInterceptor.invoke(MethodBeforeAdviceInterceptor.java:58)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:175)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:692)
+	at edu.conf.handler.NewsHandler$$EnhancerBySpringCGLIB$$18ef649d.addImage(<generated>)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:197)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:141)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:106)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1064)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:228)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:163)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:190)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:163)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:190)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:163)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:190)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:163)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:190)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:163)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:143)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:382)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1723)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+2023-05-11 15:47:25.093 conference [SpringApplicationShutdownHook] INFO  c.alibaba.druid.pool.DruidDataSource - {dataSource-1} closing ...
+2023-05-11 15:47:25.095 conference [SpringApplicationShutdownHook] INFO  c.alibaba.druid.pool.DruidDataSource - {dataSource-1} closed
+2023-05-11 15:47:30.147 conference [restartedMain] INFO  edu.conf.ConferenceBackApplication - Starting ConferenceBackApplication using Java 1.8.0_311 on DESKTOP-MM7P5T2 with PID 20140 (D:\Projects\ActualProjects\conference\conference_back\target\classes started by luwen in D:\Projects\ActualProjects\conference\conference_back)
+2023-05-11 15:47:30.149 conference [restartedMain] INFO  edu.conf.ConferenceBackApplication - The following profiles are active: dev
+2023-05-11 15:47:30.183 conference [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-05-11 15:47:30.184 conference [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-05-11 15:47:30.749 conference [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2023-05-11 15:47:30.751 conference [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2023-05-11 15:47:30.770 conference [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 9 ms. Found 0 Redis repository interfaces.
+2023-05-11 15:47:31.258 conference [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 7070 (http)
+2023-05-11 15:47:31.265 conference [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-7070"]
+2023-05-11 15:47:31.265 conference [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2023-05-11 15:47:31.265 conference [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.50]
+2023-05-11 15:47:31.267 conference [restartedMain] INFO  o.a.c.core.AprLifecycleListener - Loaded Apache Tomcat Native library [1.2.31] using APR version [1.7.0].
+2023-05-11 15:47:31.267 conference [restartedMain] INFO  o.a.c.core.AprLifecycleListener - APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [true].
+2023-05-11 15:47:31.267 conference [restartedMain] INFO  o.a.c.core.AprLifecycleListener - APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2023-05-11 15:47:31.269 conference [restartedMain] INFO  o.a.c.core.AprLifecycleListener - OpenSSL successfully initialized [OpenSSL 1.1.1l  24 Aug 2021]
+2023-05-11 15:47:31.362 conference [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2023-05-11 15:47:31.362 conference [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1178 ms
+2023-05-11 15:47:31.469 conference [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
+2023-05-11 15:47:31.536 conference [restartedMain] INFO  c.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2023-05-11 15:47:32.299 conference [restartedMain] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2023-05-11 15:47:32.404 conference [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2023-05-11 15:47:32.595 conference [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-7070"]
+2023-05-11 15:47:32.606 conference [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 7070 (http) with context path ''
+2023-05-11 15:47:32.606 conference [restartedMain] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - Context refreshed
+2023-05-11 15:47:32.617 conference [restartedMain] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+2023-05-11 15:47:32.636 conference [restartedMain] INFO  s.d.s.w.s.ApiListingReferenceScanner - Scanning for api listing references
+2023-05-11 15:47:32.746 conference [restartedMain] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: queryAllUsingGET_1
+2023-05-11 15:47:32.760 conference [restartedMain] INFO  edu.conf.ConferenceBackApplication - Started ConferenceBackApplication in 2.878 seconds (JVM running for 3.457)
+2023-05-11 15:47:45.777 conference [http-nio-7070-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-05-11 15:47:45.777 conference [http-nio-7070-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2023-05-11 15:47:45.778 conference [http-nio-7070-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2023-05-11 15:47:45.858 conference [http-nio-7070-exec-4] INFO  edu.conf.aspect.LogAspect - {"id":"de6b7382-323a-4cc8-a109-1ceb88a1a845","uri":"/news/get/50","operator":"根据category_id获取信息","name":"GET","args":[50],"path":"edu.conf.handler.NewsHandler.getNewsByNewCategoryId","referer":"http://localhost:81/","remoteAddr":"0:0:0:0:0:0:0:1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"}
+2023-05-11 15:47:46.974 conference [http-nio-7070-exec-2] INFO  edu.conf.aspect.LogAspect - {"id":"2a8a77c7-66a2-456f-adbc-ef8ef2f8cab8","uri":"/news/main/248","operator":"根据id获取信息","name":"GET","args":[248],"path":"edu.conf.handler.NewsHandler.queryNewsById","referer":"http://localhost:81/","remoteAddr":"0:0:0:0:0:0:0:1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"}
+2023-05-11 15:47:54.880 conference [http-nio-7070-exec-5] INFO  edu.conf.aspect.LogAspect - {"id":"6fbec4fc-57ea-403f-86b1-0964eec84343","uri":"/news/addImage","operator":"添加图片","name":"POST","args":[],"path":"edu.conf.handler.NewsHandler.addImage","referer":"http://localhost:81/","remoteAddr":"0:0:0:0:0:0:0:1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"}
+2023-05-11 15:47:54.881 conference [http-nio-7070-exec-5] INFO  edu.conf.utils.ImageUtils - image/jpeg
+2023-05-11 15:47:54.884 conference [http-nio-7070-exec-5] ERROR edu.conf.aspect.LogAspect - {"id":"6fbec4fc-57ea-403f-86b1-0964eec84343"}
+edu.conf.exception.HintException: 上传的文件类型只能是:[jpeg, png]
+	at edu.conf.utils.ImageUtils.uploadImage(ImageUtils.java:33)
+	at edu.conf.service.impl.NewsServiceImpl.saveMDImage(NewsServiceImpl.java:59)
+	at edu.conf.service.impl.NewsServiceImpl$$FastClassBySpringCGLIB$$5f54619f.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688)
+	at edu.conf.service.impl.NewsServiceImpl$$EnhancerBySpringCGLIB$$73e5179d.saveMDImage(<generated>)
+	at edu.conf.handler.NewsHandler.addImage(NewsHandler.java:85)
+	at edu.conf.handler.NewsHandler$$FastClassBySpringCGLIB$$5daab9a1.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:779)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750)
+	at org.springframework.aop.aspectj.AspectJAfterThrowingAdvice.invoke(AspectJAfterThrowingAdvice.java:64)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:175)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750)
+	at org.springframework.aop.framework.adapter.MethodBeforeAdviceInterceptor.invoke(MethodBeforeAdviceInterceptor.java:58)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:175)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:692)
+	at edu.conf.handler.NewsHandler$$EnhancerBySpringCGLIB$$f8edaef.addImage(<generated>)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:197)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:141)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:106)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1064)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:228)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:163)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:190)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:163)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:190)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:163)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:190)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:163)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:190)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:163)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:143)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:382)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1723)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+2023-05-11 15:47:54.889 conference [http-nio-7070-exec-5] ERROR o.a.c.c.C.[.[.[.[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is HintException(code=null)] with root cause
+edu.conf.exception.HintException: 上传的文件类型只能是:[jpeg, png]
+	at edu.conf.utils.ImageUtils.uploadImage(ImageUtils.java:33)
+	at edu.conf.service.impl.NewsServiceImpl.saveMDImage(NewsServiceImpl.java:59)
+	at edu.conf.service.impl.NewsServiceImpl$$FastClassBySpringCGLIB$$5f54619f.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688)
+	at edu.conf.service.impl.NewsServiceImpl$$EnhancerBySpringCGLIB$$73e5179d.saveMDImage(<generated>)
+	at edu.conf.handler.NewsHandler.addImage(NewsHandler.java:85)
+	at edu.conf.handler.NewsHandler$$FastClassBySpringCGLIB$$5daab9a1.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:779)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750)
+	at org.springframework.aop.aspectj.AspectJAfterThrowingAdvice.invoke(AspectJAfterThrowingAdvice.java:64)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:175)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750)
+	at org.springframework.aop.framework.adapter.MethodBeforeAdviceInterceptor.invoke(MethodBeforeAdviceInterceptor.java:58)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:175)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:692)
+	at edu.conf.handler.NewsHandler$$EnhancerBySpringCGLIB$$f8edaef.addImage(<generated>)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:197)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:141)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:106)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1064)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:228)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:163)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:190)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:163)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:190)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:163)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:190)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:163)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:190)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:163)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:143)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:382)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1723)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+2023-05-11 15:50:59.758 conference [SpringApplicationShutdownHook] INFO  c.alibaba.druid.pool.DruidDataSource - {dataSource-1} closing ...
+2023-05-11 15:50:59.760 conference [SpringApplicationShutdownHook] INFO  c.alibaba.druid.pool.DruidDataSource - {dataSource-1} closed
+2023-05-11 15:51:04.681 conference [restartedMain] INFO  edu.conf.ConferenceBackApplication - Starting ConferenceBackApplication using Java 1.8.0_311 on DESKTOP-MM7P5T2 with PID 14916 (D:\Projects\ActualProjects\conference\conference_back\target\classes started by luwen in D:\Projects\ActualProjects\conference\conference_back)
+2023-05-11 15:51:04.683 conference [restartedMain] INFO  edu.conf.ConferenceBackApplication - The following profiles are active: dev
+2023-05-11 15:51:04.719 conference [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-05-11 15:51:04.719 conference [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-05-11 15:51:05.282 conference [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2023-05-11 15:51:05.283 conference [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2023-05-11 15:51:05.303 conference [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 10 ms. Found 0 Redis repository interfaces.
+2023-05-11 15:51:05.799 conference [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 7070 (http)
+2023-05-11 15:51:05.806 conference [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-7070"]
+2023-05-11 15:51:05.806 conference [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2023-05-11 15:51:05.806 conference [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.50]
+2023-05-11 15:51:05.807 conference [restartedMain] INFO  o.a.c.core.AprLifecycleListener - Loaded Apache Tomcat Native library [1.2.31] using APR version [1.7.0].
+2023-05-11 15:51:05.808 conference [restartedMain] INFO  o.a.c.core.AprLifecycleListener - APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [true].
+2023-05-11 15:51:05.808 conference [restartedMain] INFO  o.a.c.core.AprLifecycleListener - APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2023-05-11 15:51:05.810 conference [restartedMain] INFO  o.a.c.core.AprLifecycleListener - OpenSSL successfully initialized [OpenSSL 1.1.1l  24 Aug 2021]
+2023-05-11 15:51:05.906 conference [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2023-05-11 15:51:05.906 conference [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1186 ms
+2023-05-11 15:51:06.018 conference [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
+2023-05-11 15:51:06.078 conference [restartedMain] INFO  c.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2023-05-11 15:51:06.881 conference [restartedMain] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2023-05-11 15:51:06.992 conference [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2023-05-11 15:51:07.188 conference [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-7070"]
+2023-05-11 15:51:07.199 conference [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 7070 (http) with context path ''
+2023-05-11 15:51:07.199 conference [restartedMain] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - Context refreshed
+2023-05-11 15:51:07.210 conference [restartedMain] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+2023-05-11 15:51:07.230 conference [restartedMain] INFO  s.d.s.w.s.ApiListingReferenceScanner - Scanning for api listing references
+2023-05-11 15:51:07.341 conference [restartedMain] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: queryAllUsingGET_1
+2023-05-11 15:51:07.356 conference [restartedMain] INFO  edu.conf.ConferenceBackApplication - Started ConferenceBackApplication in 2.947 seconds (JVM running for 3.505)
+2023-05-11 15:51:33.709 conference [http-nio-7070-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-05-11 15:51:33.709 conference [http-nio-7070-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2023-05-11 15:51:33.710 conference [http-nio-7070-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 0 ms
+2023-05-11 15:51:33.794 conference [http-nio-7070-exec-2] INFO  edu.conf.aspect.LogAspect - {"id":"bfd574fb-b7fb-42ae-a19b-6b4825b32e14","uri":"/news/get/44","operator":"根据category_id获取信息","name":"GET","args":[44],"path":"edu.conf.handler.NewsHandler.getNewsByNewCategoryId","referer":"http://localhost:81/","remoteAddr":"0:0:0:0:0:0:0:1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"}
+2023-05-11 15:51:34.901 conference [http-nio-7070-exec-4] INFO  edu.conf.aspect.LogAspect - {"id":"2cb7282f-e0d3-43b4-b2dd-cd7ea05a4d65","uri":"/news/main/280","operator":"根据id获取信息","name":"GET","args":[280],"path":"edu.conf.handler.NewsHandler.queryNewsById","referer":"http://localhost:81/","remoteAddr":"0:0:0:0:0:0:0:1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"}
+2023-05-11 15:51:40.973 conference [http-nio-7070-exec-7] INFO  edu.conf.aspect.LogAspect - {"id":"a92a20e5-f702-46df-91b3-54ddc953ff23","uri":"/news/addImage","operator":"添加图片","name":"POST","args":[],"path":"edu.conf.handler.NewsHandler.addImage","referer":"http://localhost:81/","remoteAddr":"0:0:0:0:0:0:0:1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"}
+2023-05-11 15:51:40.974 conference [http-nio-7070-exec-7] INFO  edu.conf.utils.ImageUtils - 目录不存在，开始创建: \home\conference\image
+2023-05-11 15:51:40.974 conference [http-nio-7070-exec-7] INFO  edu.conf.utils.ImageUtils - 开始保存
+2023-05-11 15:51:40.978 conference [http-nio-7070-exec-7] ERROR edu.conf.aspect.LogAspect - {"id":"a92a20e5-f702-46df-91b3-54ddc953ff23"}
+java.io.IOException: java.io.FileNotFoundException: C:\Users\luwen\AppData\Local\Temp\tomcat.7070.2664225239608032261\work\Tomcat\localhost\ROOT\home\conference\image\e507cad1-f63e-462c-8d1c-e58ad51bc724.png (系统找不到指定的路径。)
+	at org.apache.catalina.core.ApplicationPart.write(ApplicationPart.java:122)
+	at org.springframework.web.multipart.support.StandardMultipartHttpServletRequest$StandardMultipartFile.transferTo(StandardMultipartHttpServletRequest.java:256)
+	at edu.conf.utils.ImageUtils.uploadImage(ImageUtils.java:58)
+	at edu.conf.service.impl.NewsServiceImpl.saveMDImage(NewsServiceImpl.java:59)
+	at edu.conf.service.impl.NewsServiceImpl$$FastClassBySpringCGLIB$$5f54619f.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688)
+	at edu.conf.service.impl.NewsServiceImpl$$EnhancerBySpringCGLIB$$1a43b431.saveMDImage(<generated>)
+	at edu.conf.handler.NewsHandler.addImage(NewsHandler.java:85)
+	at edu.conf.handler.NewsHandler$$FastClassBySpringCGLIB$$5daab9a1.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:779)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750)
+	at org.springframework.aop.aspectj.AspectJAfterThrowingAdvice.invoke(AspectJAfterThrowingAdvice.java:64)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:175)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750)
+	at org.springframework.aop.framework.adapter.MethodBeforeAdviceInterceptor.invoke(MethodBeforeAdviceInterceptor.java:58)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:175)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:692)
+	at edu.conf.handler.NewsHandler$$EnhancerBySpringCGLIB$$68824df4.addImage(<generated>)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:197)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:141)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:106)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1064)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:228)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:163)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:190)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:163)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:190)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:163)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:190)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:163)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:190)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:163)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:143)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:382)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1723)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.io.FileNotFoundException: C:\Users\luwen\AppData\Local\Temp\tomcat.7070.2664225239608032261\work\Tomcat\localhost\ROOT\home\conference\image\e507cad1-f63e-462c-8d1c-e58ad51bc724.png (系统找不到指定的路径。)
+	at java.io.FileOutputStream.open0(Native Method)
+	at java.io.FileOutputStream.open(FileOutputStream.java:270)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:213)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:162)
+	at org.apache.tomcat.util.http.fileupload.disk.DiskFileItem.write(DiskFileItem.java:406)
+	at org.apache.catalina.core.ApplicationPart.write(ApplicationPart.java:120)
+	... 74 common frames omitted
+2023-05-11 15:51:40.984 conference [http-nio-7070-exec-7] ERROR o.a.c.c.C.[.[.[.[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception
+java.io.IOException: java.io.FileNotFoundException: C:\Users\luwen\AppData\Local\Temp\tomcat.7070.2664225239608032261\work\Tomcat\localhost\ROOT\home\conference\image\e507cad1-f63e-462c-8d1c-e58ad51bc724.png (系统找不到指定的路径。)
+	at org.apache.catalina.core.ApplicationPart.write(ApplicationPart.java:122)
+	at org.springframework.web.multipart.support.StandardMultipartHttpServletRequest$StandardMultipartFile.transferTo(StandardMultipartHttpServletRequest.java:256)
+	at edu.conf.utils.ImageUtils.uploadImage(ImageUtils.java:58)
+	at edu.conf.service.impl.NewsServiceImpl.saveMDImage(NewsServiceImpl.java:59)
+	at edu.conf.service.impl.NewsServiceImpl$$FastClassBySpringCGLIB$$5f54619f.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688)
+	at edu.conf.service.impl.NewsServiceImpl$$EnhancerBySpringCGLIB$$1a43b431.saveMDImage(<generated>)
+	at edu.conf.handler.NewsHandler.addImage(NewsHandler.java:85)
+	at edu.conf.handler.NewsHandler$$FastClassBySpringCGLIB$$5daab9a1.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:779)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750)
+	at org.springframework.aop.aspectj.AspectJAfterThrowingAdvice.invoke(AspectJAfterThrowingAdvice.java:64)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:175)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750)
+	at org.springframework.aop.framework.adapter.MethodBeforeAdviceInterceptor.invoke(MethodBeforeAdviceInterceptor.java:58)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:175)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:692)
+	at edu.conf.handler.NewsHandler$$EnhancerBySpringCGLIB$$68824df4.addImage(<generated>)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:197)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:141)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:106)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1064)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:228)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:163)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:190)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:163)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:190)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:163)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:190)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:163)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:190)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:163)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:143)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:382)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1723)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.io.FileNotFoundException: C:\Users\luwen\AppData\Local\Temp\tomcat.7070.2664225239608032261\work\Tomcat\localhost\ROOT\home\conference\image\e507cad1-f63e-462c-8d1c-e58ad51bc724.png (系统找不到指定的路径。)
+	at java.io.FileOutputStream.open0(Native Method)
+	at java.io.FileOutputStream.open(FileOutputStream.java:270)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:213)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:162)
+	at org.apache.tomcat.util.http.fileupload.disk.DiskFileItem.write(DiskFileItem.java:406)
+	at org.apache.catalina.core.ApplicationPart.write(ApplicationPart.java:120)
+	... 74 common frames omitted
+2023-05-11 15:52:01.819 conference [SpringApplicationShutdownHook] INFO  c.alibaba.druid.pool.DruidDataSource - {dataSource-1} closing ...
+2023-05-11 15:52:01.821 conference [SpringApplicationShutdownHook] INFO  c.alibaba.druid.pool.DruidDataSource - {dataSource-1} closed
+2023-05-11 15:52:04.785 conference [restartedMain] INFO  edu.conf.ConferenceBackApplication - Starting ConferenceBackApplication using Java 1.8.0_311 on DESKTOP-MM7P5T2 with PID 19956 (D:\Projects\ActualProjects\conference\conference_back\target\classes started by luwen in D:\Projects\ActualProjects\conference\conference_back)
+2023-05-11 15:52:04.786 conference [restartedMain] INFO  edu.conf.ConferenceBackApplication - The following profiles are active: dev
+2023-05-11 15:52:04.825 conference [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-05-11 15:52:04.825 conference [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-05-11 15:52:05.376 conference [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2023-05-11 15:52:05.378 conference [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2023-05-11 15:52:05.398 conference [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 10 ms. Found 0 Redis repository interfaces.
+2023-05-11 15:52:05.892 conference [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 7070 (http)
+2023-05-11 15:52:05.898 conference [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-7070"]
+2023-05-11 15:52:05.899 conference [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2023-05-11 15:52:05.899 conference [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.50]
+2023-05-11 15:52:05.900 conference [restartedMain] INFO  o.a.c.core.AprLifecycleListener - Loaded Apache Tomcat Native library [1.2.31] using APR version [1.7.0].
+2023-05-11 15:52:05.901 conference [restartedMain] INFO  o.a.c.core.AprLifecycleListener - APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [true].
+2023-05-11 15:52:05.901 conference [restartedMain] INFO  o.a.c.core.AprLifecycleListener - APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2023-05-11 15:52:05.903 conference [restartedMain] INFO  o.a.c.core.AprLifecycleListener - OpenSSL successfully initialized [OpenSSL 1.1.1l  24 Aug 2021]
+2023-05-11 15:52:05.997 conference [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2023-05-11 15:52:05.998 conference [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1172 ms
+2023-05-11 15:52:06.110 conference [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
+2023-05-11 15:52:06.173 conference [restartedMain] INFO  c.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2023-05-11 15:52:06.973 conference [restartedMain] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2023-05-11 15:52:07.078 conference [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2023-05-11 15:52:07.267 conference [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-7070"]
+2023-05-11 15:52:07.278 conference [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 7070 (http) with context path ''
+2023-05-11 15:52:07.279 conference [restartedMain] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - Context refreshed
+2023-05-11 15:52:07.289 conference [restartedMain] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+2023-05-11 15:52:07.308 conference [restartedMain] INFO  s.d.s.w.s.ApiListingReferenceScanner - Scanning for api listing references
+2023-05-11 15:52:07.426 conference [restartedMain] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: queryAllUsingGET_1
+2023-05-11 15:52:07.440 conference [restartedMain] INFO  edu.conf.ConferenceBackApplication - Started ConferenceBackApplication in 2.919 seconds (JVM running for 3.458)
+2023-05-11 15:52:13.626 conference [http-nio-7070-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-05-11 15:52:13.626 conference [http-nio-7070-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2023-05-11 15:52:13.627 conference [http-nio-7070-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2023-05-11 15:52:13.710 conference [http-nio-7070-exec-5] INFO  edu.conf.aspect.LogAspect - {"id":"21f5828d-81bf-425a-bb03-aa1626c75015","uri":"/news/get/42","operator":"根据category_id获取信息","name":"GET","args":[42],"path":"edu.conf.handler.NewsHandler.getNewsByNewCategoryId","referer":"http://localhost:81/","remoteAddr":"0:0:0:0:0:0:0:1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"}
+2023-05-11 15:52:16.880 conference [http-nio-7070-exec-4] INFO  edu.conf.aspect.LogAspect - {"id":"1b5a144c-1701-4971-be78-196b2d22f09f","uri":"/news/get/50","operator":"根据category_id获取信息","name":"GET","args":[50],"path":"edu.conf.handler.NewsHandler.getNewsByNewCategoryId","referer":"http://localhost:81/","remoteAddr":"0:0:0:0:0:0:0:1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"}
+2023-05-11 15:52:17.807 conference [http-nio-7070-exec-6] INFO  edu.conf.aspect.LogAspect - {"id":"970c12a8-7d53-4244-8656-2ec626c6c95a","uri":"/news/main/248","operator":"根据id获取信息","name":"GET","args":[248],"path":"edu.conf.handler.NewsHandler.queryNewsById","referer":"http://localhost:81/","remoteAddr":"0:0:0:0:0:0:0:1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"}
+2023-05-11 15:52:23.226 conference [http-nio-7070-exec-7] INFO  edu.conf.aspect.LogAspect - {"id":"710ff199-f538-475b-b455-1b68ee35532e","uri":"/news/addImage","operator":"添加图片","name":"POST","args":[],"path":"edu.conf.handler.NewsHandler.addImage","referer":"http://localhost:81/","remoteAddr":"0:0:0:0:0:0:0:1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"}
+2023-05-11 15:52:23.227 conference [http-nio-7070-exec-7] INFO  edu.conf.utils.ImageUtils - 开始保存
+2023-05-11 15:52:23.232 conference [http-nio-7070-exec-7] INFO  edu.conf.utils.ImageUtils - 保存结束
+2023-05-11 15:55:36.530 conference [SpringApplicationShutdownHook] INFO  c.alibaba.druid.pool.DruidDataSource - {dataSource-1} closing ...
+2023-05-11 15:55:36.532 conference [SpringApplicationShutdownHook] INFO  c.alibaba.druid.pool.DruidDataSource - {dataSource-1} closed
+2023-05-11 15:55:41.291 conference [restartedMain] INFO  edu.conf.ConferenceBackApplication - Starting ConferenceBackApplication using Java 1.8.0_311 on DESKTOP-MM7P5T2 with PID 5640 (D:\Projects\ActualProjects\conference\conference_back\target\classes started by luwen in D:\Projects\ActualProjects\conference\conference_back)
+2023-05-11 15:55:41.293 conference [restartedMain] INFO  edu.conf.ConferenceBackApplication - The following profiles are active: dev
+2023-05-11 15:55:41.326 conference [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-05-11 15:55:41.327 conference [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-05-11 15:55:41.892 conference [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2023-05-11 15:55:41.894 conference [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2023-05-11 15:55:41.915 conference [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 10 ms. Found 0 Redis repository interfaces.
+2023-05-11 15:55:42.402 conference [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 7070 (http)
+2023-05-11 15:55:42.408 conference [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-7070"]
+2023-05-11 15:55:42.409 conference [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2023-05-11 15:55:42.409 conference [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.50]
+2023-05-11 15:55:42.410 conference [restartedMain] INFO  o.a.c.core.AprLifecycleListener - Loaded Apache Tomcat Native library [1.2.31] using APR version [1.7.0].
+2023-05-11 15:55:42.410 conference [restartedMain] INFO  o.a.c.core.AprLifecycleListener - APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [true].
+2023-05-11 15:55:42.410 conference [restartedMain] INFO  o.a.c.core.AprLifecycleListener - APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2023-05-11 15:55:42.412 conference [restartedMain] INFO  o.a.c.core.AprLifecycleListener - OpenSSL successfully initialized [OpenSSL 1.1.1l  24 Aug 2021]
+2023-05-11 15:55:42.499 conference [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2023-05-11 15:55:42.499 conference [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1172 ms
+2023-05-11 15:55:42.607 conference [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
+2023-05-11 15:55:42.669 conference [restartedMain] INFO  c.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2023-05-11 15:55:43.431 conference [restartedMain] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2023-05-11 15:55:43.538 conference [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2023-05-11 15:55:43.727 conference [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-7070"]
+2023-05-11 15:55:43.739 conference [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 7070 (http) with context path ''
+2023-05-11 15:55:43.739 conference [restartedMain] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - Context refreshed
+2023-05-11 15:55:43.750 conference [restartedMain] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+2023-05-11 15:55:43.769 conference [restartedMain] INFO  s.d.s.w.s.ApiListingReferenceScanner - Scanning for api listing references
+2023-05-11 15:55:43.882 conference [restartedMain] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: queryAllUsingGET_1
+2023-05-11 15:55:43.897 conference [restartedMain] INFO  edu.conf.ConferenceBackApplication - Started ConferenceBackApplication in 2.878 seconds (JVM running for 3.451)
+2023-05-11 15:56:00.331 conference [http-nio-7070-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-05-11 15:56:00.331 conference [http-nio-7070-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2023-05-11 15:56:00.332 conference [http-nio-7070-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2023-05-11 15:56:00.417 conference [http-nio-7070-exec-2] INFO  edu.conf.aspect.LogAspect - {"id":"d39f726f-c246-429a-a104-ff438d63ecda","uri":"/news/get/43","operator":"根据category_id获取信息","name":"GET","args":[43],"path":"edu.conf.handler.NewsHandler.getNewsByNewCategoryId","referer":"http://localhost:81/","remoteAddr":"0:0:0:0:0:0:0:1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"}
+2023-05-11 15:56:01.503 conference [http-nio-7070-exec-4] INFO  edu.conf.aspect.LogAspect - {"id":"b95c3753-b379-4b21-a7eb-349cbe5a01f1","uri":"/news/main/279","operator":"根据id获取信息","name":"GET","args":[279],"path":"edu.conf.handler.NewsHandler.queryNewsById","referer":"http://localhost:81/","remoteAddr":"0:0:0:0:0:0:0:1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"}
+2023-05-11 15:56:07.714 conference [http-nio-7070-exec-6] INFO  edu.conf.aspect.LogAspect - {"id":"99f14823-08bb-4bf0-940d-eaf7ca111b1f","uri":"/news/addImage","operator":"添加图片","name":"POST","args":[],"path":"edu.conf.handler.NewsHandler.addImage","referer":"http://localhost:81/","remoteAddr":"0:0:0:0:0:0:0:1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"}
+2023-05-11 15:56:07.714 conference [http-nio-7070-exec-6] INFO  edu.conf.utils.ImageUtils - 开始保存
+2023-05-11 15:56:07.716 conference [http-nio-7070-exec-6] INFO  edu.conf.utils.ImageUtils - 保存结束
+2023-05-11 15:58:21.009 conference [http-nio-7070-exec-9] INFO  edu.conf.aspect.LogAspect - {"id":"bc42151e-a291-419f-9420-d086ef2638d5","uri":"/news/get/47","operator":"根据category_id获取信息","name":"GET","args":[47],"path":"edu.conf.handler.NewsHandler.getNewsByNewCategoryId","referer":"http://localhost:81/","remoteAddr":"0:0:0:0:0:0:0:1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"}
+2023-05-11 15:58:21.825 conference [http-nio-7070-exec-1] INFO  edu.conf.aspect.LogAspect - {"id":"4bd68d00-f4cc-4796-8ab9-534a98d26a75","uri":"/news/main/258","operator":"根据id获取信息","name":"GET","args":[258],"path":"edu.conf.handler.NewsHandler.queryNewsById","referer":"http://localhost:81/","remoteAddr":"0:0:0:0:0:0:0:1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"}
+2023-05-11 15:58:23.868 conference [http-nio-7070-exec-3] INFO  edu.conf.aspect.LogAspect - {"id":"608a4027-4308-4de7-83b1-d1937b6e4a6d","uri":"/news/update","operator":"修改信息","name":"POST","args":[{"htmlContent":"<p><strong>General Chairs:</strong>\nProf. Victor S. Sheng, Texas Tech University, USA</p>\n<p><strong>Technical Program Chairs:</strong>\nProf. Wei Fang, Nanjing University of Information Science and Technology, China</p>\n<p><strong>﻿﻿Technical Program Committee Members:</strong>\nDr. Zhong Chen,Xavier University of Louisiana,USA\nDr. Yi He,Old Dominion University,USA\nDr. Vibhuti Gupta,Meharry Medical College,USA\nDr. Hoang Long Nguyen,Meharry Medical College,USA\nDr. Dai Li,Meta Platforms, Inc.,USA\nDr. Chun Wang,Concordia University,CAN\nDr. Junhu Wang,Griffith University, AUS\nProf. Qiguang Wang,China Meteorological Administration Training Centre,  China\nProf. Zuping Zhang, Central South University, China\nProf. Yunliang Chen, China University of Geosciences, China\nProf. Shoutao Li, Jilin University,China\nAssoc. Prof.,Yidong Chen, Xiamen University,China\nAssoc. Prof.,Zhengzhou Zhu, Peking University,China\nAssoc. Prof.,Xiaoguang Wang, Jilin University,China</p>\n<p><strong>Organization Chairs:</strong>\nProf. Wei Fang, Nanjing University of Information Science and Technology, China\nChairman and legal representative.CEO.,Huanguang Yan, Beijing Ylitech Technology Co, China</p>\n<p><strong>﻿Organization Committee Members:</strong>\nZhong Yuan, Nanjing University of Information Science and Technology, China\nYu Sha, Nanjing University of Information Science and Technology, China\nMeihan Qi, Nanjing University of Information Science and Technology, China\nWenhe Lu, Nanjing University of Information Science and Technology, China\nJiaxin Li, Nanjing University of Information Science and Technology, China\nXiaozhi Zhang, Nanjing University of Information Science and Technology, China\nHaoxi Wang, Nanjing University of Information Science and Technology, China\nBinglun Wang, Nanjing University of Information Science and Technology, China\nJuan Du, Nanjing University of Information Science and Technology, China\nYuxiang Fu, Nanjing University of Information Science and Technology, China\nEnyi Tao, Nanjing University of Information Science and Technology, China\nHaiqiang Zheng, Nanjing University of Information Science and Technology, China</p>\n","id":258,"mdContent":"**General Chairs:**\nProf. Victor S. Sheng, Texas Tech University, USA\n\n**Technical Program Chairs:**\nProf. Wei Fang, Nanjing University of Information Science and Technology, China\n\n**﻿﻿Technical Program Committee Members:**\nDr. Zhong Chen,Xavier University of Louisiana,USA\nDr. Yi He,Old Dominion University,USA\nDr. Vibhuti Gupta,Meharry Medical College,USA\nDr. Hoang Long Nguyen,Meharry Medical College,USA\nDr. Dai Li,Meta Platforms, Inc.,USA\nDr. Chun Wang,Concordia University,CAN\nDr. Junhu Wang,Griffith University, AUS\nProf. Qiguang Wang,China Meteorological Administration Training Centre,  China\nProf. Zuping Zhang, Central South University, China\nProf. Yunliang Chen, China University of Geosciences, China\nProf. Shoutao Li, Jilin University,China\nAssoc. Prof.,Yidong Chen, Xiamen University,China\nAssoc. Prof.,Zhengzhou Zhu, Peking University,China\nAssoc. Prof.,Xiaoguang Wang, Jilin University,China\n\n**Organization Chairs:**\nProf. Wei Fang, Nanjing University of Information Science and Technology, China\nChairman and legal representative.CEO.,Huanguang Yan, Beijing Ylitech Technology Co, China\n\n**﻿Organization Committee Members:**\nZhong Yuan, Nanjing University of Information Science and Technology, China\nYu Sha, Nanjing University of Information Science and Technology, China\nMeihan Qi, Nanjing University of Information Science and Technology, China\nWenhe Lu, Nanjing University of Information Science and Technology, China\nJiaxin Li, Nanjing University of Information Science and Technology, China\nXiaozhi Zhang, Nanjing University of Information Science and Technology, China\nHaoxi Wang, Nanjing University of Information Science and Technology, China\nBinglun Wang, Nanjing University of Information Science and Technology, China\nJuan Du, Nanjing University of Information Science and Technology, China\nYuxiang Fu, Nanjing University of Information Science and Technology, China\nEnyi Tao, Nanjing University of Information Science and Technology, China\nHaiqiang Zheng, Nanjing University of Information Science and Technology, China","releaseTime":1680278400000,"title":"Committee"}],"path":"edu.conf.handler.NewsHandler.updateNews","referer":"http://localhost:81/","remoteAddr":"0:0:0:0:0:0:0:1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"}
+2023-05-11 15:59:12.283 conference [SpringApplicationShutdownHook] INFO  c.alibaba.druid.pool.DruidDataSource - {dataSource-1} closing ...
+2023-05-11 15:59:12.284 conference [SpringApplicationShutdownHook] INFO  c.alibaba.druid.pool.DruidDataSource - {dataSource-1} closed
+2023-05-11 15:59:47.131 conference [restartedMain] INFO  edu.conf.ConferenceBackApplication - Starting ConferenceBackApplication using Java 1.8.0_311 on DESKTOP-MM7P5T2 with PID 14028 (D:\Projects\ActualProjects\conference\conference_back\target\classes started by luwen in D:\Projects\ActualProjects\conference\conference_back)
+2023-05-11 15:59:47.132 conference [restartedMain] INFO  edu.conf.ConferenceBackApplication - The following profiles are active: dev
+2023-05-11 15:59:47.167 conference [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-05-11 15:59:47.167 conference [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-05-11 15:59:47.720 conference [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2023-05-11 15:59:47.721 conference [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2023-05-11 15:59:47.740 conference [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 9 ms. Found 0 Redis repository interfaces.
+2023-05-11 15:59:48.223 conference [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 7070 (http)
+2023-05-11 15:59:48.229 conference [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-7070"]
+2023-05-11 15:59:48.229 conference [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2023-05-11 15:59:48.229 conference [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.50]
+2023-05-11 15:59:48.231 conference [restartedMain] INFO  o.a.c.core.AprLifecycleListener - Loaded Apache Tomcat Native library [1.2.31] using APR version [1.7.0].
+2023-05-11 15:59:48.231 conference [restartedMain] INFO  o.a.c.core.AprLifecycleListener - APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [true].
+2023-05-11 15:59:48.231 conference [restartedMain] INFO  o.a.c.core.AprLifecycleListener - APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2023-05-11 15:59:48.233 conference [restartedMain] INFO  o.a.c.core.AprLifecycleListener - OpenSSL successfully initialized [OpenSSL 1.1.1l  24 Aug 2021]
+2023-05-11 15:59:48.318 conference [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2023-05-11 15:59:48.318 conference [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1150 ms
+2023-05-11 15:59:48.428 conference [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
+2023-05-11 15:59:48.492 conference [restartedMain] INFO  c.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2023-05-11 15:59:49.263 conference [restartedMain] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2023-05-11 15:59:49.369 conference [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2023-05-11 15:59:49.553 conference [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-7070"]
+2023-05-11 15:59:49.565 conference [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 7070 (http) with context path ''
+2023-05-11 15:59:49.565 conference [restartedMain] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - Context refreshed
+2023-05-11 15:59:49.576 conference [restartedMain] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+2023-05-11 15:59:49.595 conference [restartedMain] INFO  s.d.s.w.s.ApiListingReferenceScanner - Scanning for api listing references
+2023-05-11 15:59:49.706 conference [restartedMain] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: queryAllUsingGET_1
+2023-05-11 15:59:49.721 conference [restartedMain] INFO  edu.conf.ConferenceBackApplication - Started ConferenceBackApplication in 2.861 seconds (JVM running for 3.425)
+2023-05-11 16:00:11.062 conference [http-nio-7070-exec-5] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-05-11 16:00:11.062 conference [http-nio-7070-exec-5] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2023-05-11 16:00:11.064 conference [http-nio-7070-exec-5] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2023-05-11 16:00:11.647 conference [http-nio-7070-exec-3] INFO  edu.conf.aspect.LogAspect - {"id":"468f78e4-35c6-41d5-b9f9-ebf06a6c1ee5","uri":"/news/get/46","operator":"根据category_id获取信息","name":"GET","args":[46],"path":"edu.conf.handler.NewsHandler.getNewsByNewCategoryId","referer":"http://localhost:8081/","remoteAddr":"0:0:0:0:0:0:0:1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"}
+2023-05-11 16:00:11.647 conference [http-nio-7070-exec-2] INFO  edu.conf.aspect.LogAspect - {"id":"4754bbaf-9a9d-4fc6-8ecf-75bbea27a3f2","uri":"/news/get/42","operator":"根据category_id获取信息","name":"GET","args":[42],"path":"edu.conf.handler.NewsHandler.getNewsByNewCategoryId","referer":"http://localhost:8081/","remoteAddr":"0:0:0:0:0:0:0:1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"}
+2023-05-11 16:00:11.647 conference [http-nio-7070-exec-6] INFO  edu.conf.aspect.LogAspect - {"id":"af251303-e0b3-4218-9800-eb2933271948","uri":"/news/get/43","operator":"根据category_id获取信息","name":"GET","args":[43],"path":"edu.conf.handler.NewsHandler.getNewsByNewCategoryId","referer":"http://localhost:8081/","remoteAddr":"0:0:0:0:0:0:0:1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"}
+2023-05-11 16:00:11.647 conference [http-nio-7070-exec-8] INFO  edu.conf.aspect.LogAspect - {"id":"081cd1fe-c11f-4c6d-98ff-94e703e1a718","uri":"/news/get/44","operator":"根据category_id获取信息","name":"GET","args":[44],"path":"edu.conf.handler.NewsHandler.getNewsByNewCategoryId","referer":"http://localhost:8081/","remoteAddr":"0:0:0:0:0:0:0:1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"}
+2023-05-11 16:00:17.949 conference [http-nio-7070-exec-9] INFO  edu.conf.aspect.LogAspect - {"id":"ff658a3b-2444-46f6-bb5c-6d2e480e03a1","uri":"/news/get/47","operator":"根据category_id获取信息","name":"GET","args":[47],"path":"edu.conf.handler.NewsHandler.getNewsByNewCategoryId","referer":"http://localhost:8081/","remoteAddr":"0:0:0:0:0:0:0:1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"}
+2023-05-11 16:00:20.356 conference [http-nio-7070-exec-4] INFO  edu.conf.aspect.LogAspect - {"id":"032bf1d7-2cb0-486d-81bb-654d632e4955","uri":"/news/get/40","operator":"根据category_id获取信息","name":"GET","args":[40],"path":"edu.conf.handler.NewsHandler.getNewsByNewCategoryId","referer":"http://localhost:8081/","remoteAddr":"0:0:0:0:0:0:0:1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"}
+2023-05-11 16:00:20.788 conference [http-nio-7070-exec-5] INFO  edu.conf.aspect.LogAspect - {"id":"380cbefd-3e20-41e1-8b99-b9c56dda60c8","uri":"/news/get/38","operator":"根据category_id获取信息","name":"GET","args":[38],"path":"edu.conf.handler.NewsHandler.getNewsByNewCategoryId","referer":"http://localhost:8081/","remoteAddr":"0:0:0:0:0:0:0:1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"}
+2023-05-11 16:00:21.896 conference [http-nio-7070-exec-1] INFO  edu.conf.aspect.LogAspect - {"id":"7278a100-20d7-4830-b24a-307aad9ed651","uri":"/news/get/39","operator":"根据category_id获取信息","name":"GET","args":[39],"path":"edu.conf.handler.NewsHandler.getNewsByNewCategoryId","referer":"http://localhost:8081/","remoteAddr":"0:0:0:0:0:0:0:1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"}
+2023-05-11 16:00:22.521 conference [http-nio-7070-exec-7] INFO  edu.conf.aspect.LogAspect - {"id":"ca89c71a-288b-416a-b596-96db7780317f","uri":"/news/get/38","operator":"根据category_id获取信息","name":"GET","args":[38],"path":"edu.conf.handler.NewsHandler.getNewsByNewCategoryId","referer":"http://localhost:8081/","remoteAddr":"0:0:0:0:0:0:0:1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"}
+2023-05-11 16:00:24.787 conference [http-nio-7070-exec-10] INFO  edu.conf.aspect.LogAspect - {"id":"d30b90f8-c2c3-4d8b-8640-345766af71c0","uri":"/news/get/48","operator":"根据category_id获取信息","name":"GET","args":[48],"path":"edu.conf.handler.NewsHandler.getNewsByNewCategoryId","referer":"http://localhost:8081/","remoteAddr":"0:0:0:0:0:0:0:1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"}
+2023-05-11 16:00:25.250 conference [http-nio-7070-exec-6] INFO  edu.conf.aspect.LogAspect - {"id":"a8515bf8-4e12-4e59-beb2-a3d3e0e379ea","uri":"/news/get/41","operator":"根据category_id获取信息","name":"GET","args":[41],"path":"edu.conf.handler.NewsHandler.getNewsByNewCategoryId","referer":"http://localhost:8081/","remoteAddr":"0:0:0:0:0:0:0:1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"}
+2023-05-11 16:00:26.311 conference [http-nio-7070-exec-3] INFO  edu.conf.aspect.LogAspect - {"id":"d09db190-4edf-4e82-9c2e-c2d6c5337ca6","uri":"/news/get/39","operator":"根据category_id获取信息","name":"GET","args":[39],"path":"edu.conf.handler.NewsHandler.getNewsByNewCategoryId","referer":"http://localhost:8081/","remoteAddr":"0:0:0:0:0:0:0:1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"}
+2023-05-11 16:00:27.214 conference [http-nio-7070-exec-8] INFO  edu.conf.aspect.LogAspect - {"id":"c40c23fd-53e4-4824-8a19-def47890529d","uri":"/news/get/38","operator":"根据category_id获取信息","name":"GET","args":[38],"path":"edu.conf.handler.NewsHandler.getNewsByNewCategoryId","referer":"http://localhost:8081/","remoteAddr":"0:0:0:0:0:0:0:1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"}
+2023-05-11 16:00:52.169 conference [http-nio-7070-exec-2] INFO  edu.conf.aspect.LogAspect - {"id":"caf0e46b-d661-48d7-819d-4ab37dc8227d","uri":"/news/get/38","operator":"根据category_id获取信息","name":"GET","args":[38],"path":"edu.conf.handler.NewsHandler.getNewsByNewCategoryId","referer":"http://localhost:8081/","remoteAddr":"0:0:0:0:0:0:0:1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"}
+2023-05-11 16:03:40.183 conference [http-nio-7070-exec-7] INFO  edu.conf.aspect.LogAspect - {"id":"b25ec4f3-7f02-47be-8a54-18178b873726","uri":"/news/get/38","operator":"根据category_id获取信息","name":"GET","args":[38],"path":"edu.conf.handler.NewsHandler.getNewsByNewCategoryId","referer":"http://localhost:8081/","remoteAddr":"0:0:0:0:0:0:0:1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"}
+2023-05-11 16:03:42.888 conference [http-nio-7070-exec-10] INFO  edu.conf.aspect.LogAspect - {"id":"cf43f248-994d-456f-a21e-f7612ac17263","uri":"/news/get/40","operator":"根据category_id获取信息","name":"GET","args":[40],"path":"edu.conf.handler.NewsHandler.getNewsByNewCategoryId","referer":"http://localhost:8081/","remoteAddr":"0:0:0:0:0:0:0:1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"}
+2023-05-11 16:03:46.146 conference [http-nio-7070-exec-6] INFO  edu.conf.aspect.LogAspect - {"id":"07085744-9961-4344-8cbb-a282f42133cf","uri":"/news/get/39","operator":"根据category_id获取信息","name":"GET","args":[39],"path":"edu.conf.handler.NewsHandler.getNewsByNewCategoryId","referer":"http://localhost:8081/","remoteAddr":"0:0:0:0:0:0:0:1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"}
+2023-05-11 16:03:47.852 conference [http-nio-7070-exec-3] INFO  edu.conf.aspect.LogAspect - {"id":"b4143954-84ac-4acc-b4f5-5cf92e757628","uri":"/news/get/41","operator":"根据category_id获取信息","name":"GET","args":[41],"path":"edu.conf.handler.NewsHandler.getNewsByNewCategoryId","referer":"http://localhost:8081/","remoteAddr":"0:0:0:0:0:0:0:1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"}
+2023-05-11 16:03:49.839 conference [http-nio-7070-exec-8] INFO  edu.conf.aspect.LogAspect - {"id":"18725d4e-343c-4d1d-9c65-7ce66d7c399d","uri":"/news/get/38","operator":"根据category_id获取信息","name":"GET","args":[38],"path":"edu.conf.handler.NewsHandler.getNewsByNewCategoryId","referer":"http://localhost:8081/","remoteAddr":"0:0:0:0:0:0:0:1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"}
+2023-05-11 16:04:03.062 conference [http-nio-7070-exec-2] INFO  edu.conf.aspect.LogAspect - {"id":"60fa0b6f-712c-444b-8d98-d18a5ef15b8f","uri":"/news/get/38","operator":"根据category_id获取信息","name":"GET","args":[38],"path":"edu.conf.handler.NewsHandler.getNewsByNewCategoryId","referer":"http://localhost:8081/","remoteAddr":"0:0:0:0:0:0:0:1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"}
+2023-05-11 16:06:42.664 conference [http-nio-7070-exec-4] INFO  edu.conf.aspect.LogAspect - {"id":"63bf6b3b-7ee1-4522-9595-96328fa5c3e8","uri":"/news/get/38","operator":"根据category_id获取信息","name":"GET","args":[38],"path":"edu.conf.handler.NewsHandler.getNewsByNewCategoryId","referer":"http://localhost:8081/","remoteAddr":"0:0:0:0:0:0:0:1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"}
+2023-05-11 16:08:02.528 conference [http-nio-7070-exec-1] INFO  edu.conf.aspect.LogAspect - {"id":"b2886900-4626-4175-bdd6-6473dc0868b2","uri":"/news/get/38","operator":"根据category_id获取信息","name":"GET","args":[38],"path":"edu.conf.handler.NewsHandler.getNewsByNewCategoryId","referer":"http://localhost:8081/","remoteAddr":"0:0:0:0:0:0:0:1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"}
+2023-05-11 16:08:05.151 conference [http-nio-7070-exec-7] INFO  edu.conf.aspect.LogAspect - {"id":"d7bfb401-aa7b-4308-8510-f27fc60179dc","uri":"/news/get/38","operator":"根据category_id获取信息","name":"GET","args":[38],"path":"edu.conf.handler.NewsHandler.getNewsByNewCategoryId","referer":"http://localhost:8081/","remoteAddr":"0:0:0:0:0:0:0:1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"}
+2023-05-11 16:09:04.330 conference [http-nio-7070-exec-10] INFO  edu.conf.aspect.LogAspect - {"id":"b93b93ce-acc5-43e0-8061-5a1f5fa64f3f","uri":"/news/get/38","operator":"根据category_id获取信息","name":"GET","args":[38],"path":"edu.conf.handler.NewsHandler.getNewsByNewCategoryId","referer":"http://localhost:8081/","remoteAddr":"0:0:0:0:0:0:0:1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"}
+2023-05-11 16:09:34.607 conference [http-nio-7070-exec-6] INFO  edu.conf.aspect.LogAspect - {"id":"6ac84676-0e9d-4e41-96e2-09a76101f6cd","uri":"/news/get/38","operator":"根据category_id获取信息","name":"GET","args":[38],"path":"edu.conf.handler.NewsHandler.getNewsByNewCategoryId","referer":"http://localhost:8081/","remoteAddr":"0:0:0:0:0:0:0:1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"}
+2023-05-11 16:09:43.127 conference [http-nio-7070-exec-3] INFO  edu.conf.aspect.LogAspect - {"id":"b0f8fe1f-08a7-43c7-8839-893d18835a7f","uri":"/news/get/38","operator":"根据category_id获取信息","name":"GET","args":[38],"path":"edu.conf.handler.NewsHandler.getNewsByNewCategoryId","referer":"http://localhost:8081/","remoteAddr":"0:0:0:0:0:0:0:1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"}
+2023-05-11 16:10:54.868 conference [http-nio-7070-exec-2] INFO  edu.conf.aspect.LogAspect - {"id":"3c547b4a-33ef-4ed6-b256-1c516e277a6d","uri":"/news/get/38","operator":"根据category_id获取信息","name":"GET","args":[38],"path":"edu.conf.handler.NewsHandler.getNewsByNewCategoryId","referer":"http://localhost:8081/","remoteAddr":"0:0:0:0:0:0:0:1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"}
+2023-05-11 16:12:07.579 conference [http-nio-7070-exec-4] INFO  edu.conf.aspect.LogAspect - {"id":"2d136f27-9057-47e0-9f8c-e5bf7701f1ab","uri":"/news/get/38","operator":"根据category_id获取信息","name":"GET","args":[38],"path":"edu.conf.handler.NewsHandler.getNewsByNewCategoryId","referer":"http://localhost:8081/","remoteAddr":"0:0:0:0:0:0:0:1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"}
+2023-05-11 16:13:46.690 conference [http-nio-7070-exec-1] INFO  edu.conf.aspect.LogAspect - {"id":"095f4454-2a26-4d47-8d12-d6dc38e864d0","uri":"/news/get/38","operator":"根据category_id获取信息","name":"GET","args":[38],"path":"edu.conf.handler.NewsHandler.getNewsByNewCategoryId","referer":"http://localhost:8081/","remoteAddr":"0:0:0:0:0:0:0:1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"}
+2023-05-11 16:16:45.810 conference [http-nio-7070-exec-10] INFO  edu.conf.aspect.LogAspect - {"id":"8c61cefb-6e9b-4e72-a344-c0d5ce2d3347","uri":"/news/get/38","operator":"根据category_id获取信息","name":"GET","args":[38],"path":"edu.conf.handler.NewsHandler.getNewsByNewCategoryId","referer":"http://localhost:8081/","remoteAddr":"0:0:0:0:0:0:0:1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"}
+2023-05-11 16:19:39.397 conference [http-nio-7070-exec-3] INFO  edu.conf.aspect.LogAspect - {"id":"9833da2d-c8c6-4814-9f3d-85b322e3945d","uri":"/news/get/38","operator":"根据category_id获取信息","name":"GET","args":[38],"path":"edu.conf.handler.NewsHandler.getNewsByNewCategoryId","referer":"http://localhost:8081/","remoteAddr":"0:0:0:0:0:0:0:1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"}
+2023-05-11 16:19:40.911 conference [http-nio-7070-exec-8] INFO  edu.conf.aspect.LogAspect - {"id":"3171a4cd-e190-46da-ac0f-8f70ed91e8bb","uri":"/news/get/38","operator":"根据category_id获取信息","name":"GET","args":[38],"path":"edu.conf.handler.NewsHandler.getNewsByNewCategoryId","referer":"http://localhost:8081/","remoteAddr":"0:0:0:0:0:0:0:1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"}
+2023-05-11 16:25:44.687 conference [http-nio-7070-exec-5] INFO  edu.conf.aspect.LogAspect - {"id":"dcd8e717-6f25-483a-ba36-f8537647703e","uri":"/news/get/38","operator":"根据category_id获取信息","name":"GET","args":[38],"path":"edu.conf.handler.NewsHandler.getNewsByNewCategoryId","referer":"http://localhost:8081/","remoteAddr":"0:0:0:0:0:0:0:1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"}
+2023-05-11 16:26:27.662 conference [http-nio-7070-exec-4] INFO  edu.conf.aspect.LogAspect - {"id":"b57448cf-b10c-43b4-8eb7-d11fcbcefc4e","uri":"/news/get/38","operator":"根据category_id获取信息","name":"GET","args":[38],"path":"edu.conf.handler.NewsHandler.getNewsByNewCategoryId","referer":"http://localhost:8081/","remoteAddr":"0:0:0:0:0:0:0:1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"}
+2023-05-11 16:29:47.766 conference [http-nio-7070-exec-1] INFO  edu.conf.aspect.LogAspect - {"id":"999eaa96-2747-464e-aad8-fe94d816b23f","uri":"/news/get/38","operator":"根据category_id获取信息","name":"GET","args":[38],"path":"edu.conf.handler.NewsHandler.getNewsByNewCategoryId","referer":"http://localhost:8081/","remoteAddr":"0:0:0:0:0:0:0:1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"}
+2023-05-11 16:30:22.690 conference [http-nio-7070-exec-7] INFO  edu.conf.aspect.LogAspect - {"id":"30dcefc2-b9b5-4138-8bb1-36f7b8b93531","uri":"/news/get/38","operator":"根据category_id获取信息","name":"GET","args":[38],"path":"edu.conf.handler.NewsHandler.getNewsByNewCategoryId","referer":"http://localhost:8081/","remoteAddr":"0:0:0:0:0:0:0:1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"}
+2023-05-11 16:33:05.145 conference [http-nio-7070-exec-4] INFO  edu.conf.aspect.LogAspect - {"id":"df210c0c-bebe-40a4-a35a-a2596b933951","uri":"/news/get/43","operator":"根据category_id获取信息","name":"GET","args":[43],"path":"edu.conf.handler.NewsHandler.getNewsByNewCategoryId","referer":"http://localhost:8081/","remoteAddr":"0:0:0:0:0:0:0:1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"}
+2023-05-11 16:33:05.145 conference [http-nio-7070-exec-5] INFO  edu.conf.aspect.LogAspect - {"id":"34f24b09-77ee-42f0-a72d-848ad2d4adcd","uri":"/news/get/42","operator":"根据category_id获取信息","name":"GET","args":[42],"path":"edu.conf.handler.NewsHandler.getNewsByNewCategoryId","referer":"http://localhost:8081/","remoteAddr":"0:0:0:0:0:0:0:1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"}
+2023-05-11 16:33:05.146 conference [http-nio-7070-exec-9] INFO  edu.conf.aspect.LogAspect - {"id":"2649dbcc-3257-4f61-aeb8-592c32b9adcb","uri":"/news/get/44","operator":"根据category_id获取信息","name":"GET","args":[44],"path":"edu.conf.handler.NewsHandler.getNewsByNewCategoryId","referer":"http://localhost:8081/","remoteAddr":"0:0:0:0:0:0:0:1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"}
+2023-05-11 16:33:05.147 conference [http-nio-7070-exec-1] INFO  edu.conf.aspect.LogAspect - {"id":"0547d5bc-2a26-497f-a047-aeea650ae22c","uri":"/news/get/46","operator":"根据category_id获取信息","name":"GET","args":[46],"path":"edu.conf.handler.NewsHandler.getNewsByNewCategoryId","referer":"http://localhost:8081/","remoteAddr":"0:0:0:0:0:0:0:1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"}
+2023-05-11 16:37:18.582 conference [http-nio-7070-exec-9] INFO  edu.conf.aspect.LogAspect - {"id":"af3ea2b5-2309-4105-a4d2-c7150e7411b8","uri":"/news/get/43","operator":"根据category_id获取信息","name":"GET","args":[43],"path":"edu.conf.handler.NewsHandler.getNewsByNewCategoryId","referer":"http://localhost:8081/","remoteAddr":"0:0:0:0:0:0:0:1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"}
+2023-05-11 16:37:18.582 conference [http-nio-7070-exec-1] INFO  edu.conf.aspect.LogAspect - {"id":"af7f8a76-9fc8-4da8-b6d1-b66f3fbd146d","uri":"/news/get/42","operator":"根据category_id获取信息","name":"GET","args":[42],"path":"edu.conf.handler.NewsHandler.getNewsByNewCategoryId","referer":"http://localhost:8081/","remoteAddr":"0:0:0:0:0:0:0:1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"}
+2023-05-11 16:37:18.583 conference [http-nio-7070-exec-3] INFO  edu.conf.aspect.LogAspect - {"id":"87531645-ed62-4cd2-b296-e247983fe07d","uri":"/news/get/46","operator":"根据category_id获取信息","name":"GET","args":[46],"path":"edu.conf.handler.NewsHandler.getNewsByNewCategoryId","referer":"http://localhost:8081/","remoteAddr":"0:0:0:0:0:0:0:1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"}
+2023-05-11 16:37:18.583 conference [http-nio-7070-exec-10] INFO  edu.conf.aspect.LogAspect - {"id":"5fbc238d-3f0b-44aa-b79c-da27308f3ca1","uri":"/news/get/44","operator":"根据category_id获取信息","name":"GET","args":[44],"path":"edu.conf.handler.NewsHandler.getNewsByNewCategoryId","referer":"http://localhost:8081/","remoteAddr":"0:0:0:0:0:0:0:1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"}
+2023-05-11 16:40:43.077 conference [http-nio-7070-exec-3] INFO  edu.conf.aspect.LogAspect - {"id":"86d49cda-5e6d-4626-897c-93ec08ba4b62","uri":"/news/get/42","operator":"根据category_id获取信息","name":"GET","args":[42],"path":"edu.conf.handler.NewsHandler.getNewsByNewCategoryId","referer":"http://localhost:8081/","remoteAddr":"0:0:0:0:0:0:0:1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"}
+2023-05-11 16:40:43.077 conference [http-nio-7070-exec-10] INFO  edu.conf.aspect.LogAspect - {"id":"80ac3984-d63f-4e57-a4a9-13631b1b0d4b","uri":"/news/get/43","operator":"根据category_id获取信息","name":"GET","args":[43],"path":"edu.conf.handler.NewsHandler.getNewsByNewCategoryId","referer":"http://localhost:8081/","remoteAddr":"0:0:0:0:0:0:0:1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"}
+2023-05-11 16:40:43.078 conference [http-nio-7070-exec-2] INFO  edu.conf.aspect.LogAspect - {"id":"884b45ae-e236-40b7-be17-9f9a6857cbd0","uri":"/news/get/46","operator":"根据category_id获取信息","name":"GET","args":[46],"path":"edu.conf.handler.NewsHandler.getNewsByNewCategoryId","referer":"http://localhost:8081/","remoteAddr":"0:0:0:0:0:0:0:1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"}
+2023-05-11 16:40:43.078 conference [http-nio-7070-exec-7] INFO  edu.conf.aspect.LogAspect - {"id":"326f906e-484b-4a69-9cb5-c1c6e94bfbc0","uri":"/news/get/44","operator":"根据category_id获取信息","name":"GET","args":[44],"path":"edu.conf.handler.NewsHandler.getNewsByNewCategoryId","referer":"http://localhost:8081/","remoteAddr":"0:0:0:0:0:0:0:1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"}
+2023-05-11 16:42:02.878 conference [http-nio-7070-exec-9] INFO  edu.conf.aspect.LogAspect - {"id":"e128474a-5cee-4b8c-a26b-c553f03466e1","uri":"/news/get/47","operator":"根据category_id获取信息","name":"GET","args":[47],"path":"edu.conf.handler.NewsHandler.getNewsByNewCategoryId","referer":"http://localhost:8081/","remoteAddr":"0:0:0:0:0:0:0:1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"}
+2023-05-11 16:42:05.016 conference [http-nio-7070-exec-1] INFO  edu.conf.aspect.LogAspect - {"id":"087b1184-8c76-4b7c-8aff-6aa64a572204","uri":"/news/get/40","operator":"根据category_id获取信息","name":"GET","args":[40],"path":"edu.conf.handler.NewsHandler.getNewsByNewCategoryId","referer":"http://localhost:8081/","remoteAddr":"0:0:0:0:0:0:0:1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"}
+2023-05-11 16:42:05.608 conference [http-nio-7070-exec-3] INFO  edu.conf.aspect.LogAspect - {"id":"41d66bfb-e900-4aaa-8f38-072816c6c72e","uri":"/news/get/38","operator":"根据category_id获取信息","name":"GET","args":[38],"path":"edu.conf.handler.NewsHandler.getNewsByNewCategoryId","referer":"http://localhost:8081/","remoteAddr":"0:0:0:0:0:0:0:1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"}
+2023-05-11 16:44:02.206 conference [http-nio-7070-exec-2] INFO  edu.conf.aspect.LogAspect - {"id":"a2ea2461-87b7-48d6-aac8-3c47628e9e2e","uri":"/news/get/40","operator":"根据category_id获取信息","name":"GET","args":[40],"path":"edu.conf.handler.NewsHandler.getNewsByNewCategoryId","referer":"http://localhost:8081/","remoteAddr":"0:0:0:0:0:0:0:1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"}
+2023-05-11 16:44:02.750 conference [http-nio-7070-exec-10] INFO  edu.conf.aspect.LogAspect - {"id":"680d3cc4-13c0-4132-a607-b15dc6689207","uri":"/news/get/38","operator":"根据category_id获取信息","name":"GET","args":[38],"path":"edu.conf.handler.NewsHandler.getNewsByNewCategoryId","referer":"http://localhost:8081/","remoteAddr":"0:0:0:0:0:0:0:1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"}
+2023-05-11 16:44:03.144 conference [http-nio-7070-exec-8] INFO  edu.conf.aspect.LogAspect - {"id":"e09a34e2-dfa9-4d76-98f4-7f2e69f3ea24","uri":"/news/get/39","operator":"根据category_id获取信息","name":"GET","args":[39],"path":"edu.conf.handler.NewsHandler.getNewsByNewCategoryId","referer":"http://localhost:8081/","remoteAddr":"0:0:0:0:0:0:0:1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"}
+2023-05-11 16:44:03.481 conference [http-nio-7070-exec-5] INFO  edu.conf.aspect.LogAspect - {"id":"b1e13869-d74f-403d-91c7-d5ef347f45ec","uri":"/news/get/41","operator":"根据category_id获取信息","name":"GET","args":[41],"path":"edu.conf.handler.NewsHandler.getNewsByNewCategoryId","referer":"http://localhost:8081/","remoteAddr":"0:0:0:0:0:0:0:1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"}
+2023-05-11 16:44:03.779 conference [http-nio-7070-exec-4] INFO  edu.conf.aspect.LogAspect - {"id":"d2713066-4f1d-4c0b-8413-a862bb48c9fb","uri":"/news/get/48","operator":"根据category_id获取信息","name":"GET","args":[48],"path":"edu.conf.handler.NewsHandler.getNewsByNewCategoryId","referer":"http://localhost:8081/","remoteAddr":"0:0:0:0:0:0:0:1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"}
+2023-05-11 16:44:06.120 conference [http-nio-7070-exec-2] INFO  edu.conf.aspect.LogAspect - {"id":"12c4239a-0418-428c-a013-504d6a9e0549","uri":"/news/get/43","operator":"根据category_id获取信息","name":"GET","args":[43],"path":"edu.conf.handler.NewsHandler.getNewsByNewCategoryId","referer":"http://localhost:8081/","remoteAddr":"0:0:0:0:0:0:0:1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"}
+2023-05-11 16:44:06.120 conference [http-nio-7070-exec-7] INFO  edu.conf.aspect.LogAspect - {"id":"b4d4a95c-6be4-4075-8c5e-6a1064ba9f91","uri":"/news/get/42","operator":"根据category_id获取信息","name":"GET","args":[42],"path":"edu.conf.handler.NewsHandler.getNewsByNewCategoryId","referer":"http://localhost:8081/","remoteAddr":"0:0:0:0:0:0:0:1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"}
+2023-05-11 16:44:06.121 conference [http-nio-7070-exec-10] INFO  edu.conf.aspect.LogAspect - {"id":"448b2ba6-4b25-4f50-ad0a-8fc9c5c89b03","uri":"/news/get/44","operator":"根据category_id获取信息","name":"GET","args":[44],"path":"edu.conf.handler.NewsHandler.getNewsByNewCategoryId","referer":"http://localhost:8081/","remoteAddr":"0:0:0:0:0:0:0:1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"}
+2023-05-11 16:44:06.121 conference [http-nio-7070-exec-8] INFO  edu.conf.aspect.LogAspect - {"id":"f79eec34-9200-489b-b8f2-a9e66a0d4bfb","uri":"/news/get/46","operator":"根据category_id获取信息","name":"GET","args":[46],"path":"edu.conf.handler.NewsHandler.getNewsByNewCategoryId","referer":"http://localhost:8081/","remoteAddr":"0:0:0:0:0:0:0:1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"}
+2023-05-11 16:44:07.670 conference [http-nio-7070-exec-5] INFO  edu.conf.aspect.LogAspect - {"id":"e10ec338-5f23-4b9a-8e8a-a80a33c3978c","uri":"/news/get/47","operator":"根据category_id获取信息","name":"GET","args":[47],"path":"edu.conf.handler.NewsHandler.getNewsByNewCategoryId","referer":"http://localhost:8081/","remoteAddr":"0:0:0:0:0:0:0:1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"}
+2023-05-11 16:44:09.050 conference [http-nio-7070-exec-4] INFO  edu.conf.aspect.LogAspect - {"id":"c172d2c8-dfa9-481f-a68f-aa5898798aee","uri":"/news/get/27","operator":"根据category_id获取信息","name":"GET","args":[27],"path":"edu.conf.handler.NewsHandler.getNewsByNewCategoryId","referer":"http://localhost:8081/","remoteAddr":"0:0:0:0:0:0:0:1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"}
+2023-05-11 16:44:11.512 conference [http-nio-7070-exec-9] INFO  edu.conf.aspect.LogAspect - {"id":"1e27927b-1ee2-4ffd-9eb7-5ab6349035e1","uri":"/news/get/28","operator":"根据category_id获取信息","name":"GET","args":[28],"path":"edu.conf.handler.NewsHandler.getNewsByNewCategoryId","referer":"http://localhost:8081/","remoteAddr":"0:0:0:0:0:0:0:1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"}
+2023-05-11 16:44:16.262 conference [http-nio-7070-exec-6] INFO  edu.conf.aspect.LogAspect - {"id":"bfaf0324-8de2-4b15-9883-c327336d7e9d","uri":"/news/get/47","operator":"根据category_id获取信息","name":"GET","args":[47],"path":"edu.conf.handler.NewsHandler.getNewsByNewCategoryId","referer":"http://localhost:8081/","remoteAddr":"0:0:0:0:0:0:0:1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"}
+2023-05-11 16:44:19.361 conference [http-nio-7070-exec-3] INFO  edu.conf.aspect.LogAspect - {"id":"2bc1eb25-0cdb-4630-b57c-91065bd11531","uri":"/news/get/27","operator":"根据category_id获取信息","name":"GET","args":[27],"path":"edu.conf.handler.NewsHandler.getNewsByNewCategoryId","referer":"http://localhost:8081/","remoteAddr":"0:0:0:0:0:0:0:1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"}
+2023-05-11 16:45:30.458 conference [http-nio-7070-exec-8] INFO  edu.conf.aspect.LogAspect - {"id":"f7c84bcd-869c-4938-b081-5a8ef7668053","uri":"/news/get/27","operator":"根据category_id获取信息","name":"GET","args":[27],"path":"edu.conf.handler.NewsHandler.getNewsByNewCategoryId","referer":"http://localhost:8081/","remoteAddr":"0:0:0:0:0:0:0:1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"}
+2023-05-11 16:45:41.817 conference [http-nio-7070-exec-5] INFO  edu.conf.aspect.LogAspect - {"id":"4eed0010-55ec-4585-843e-60c122cac367","uri":"/news/get/27","operator":"根据category_id获取信息","name":"GET","args":[27],"path":"edu.conf.handler.NewsHandler.getNewsByNewCategoryId","referer":"http://localhost:8081/","remoteAddr":"0:0:0:0:0:0:0:1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"}
+2023-05-11 16:51:57.610 conference [SpringApplicationShutdownHook] INFO  c.alibaba.druid.pool.DruidDataSource - {dataSource-1} closing ...
+2023-05-11 16:51:57.612 conference [SpringApplicationShutdownHook] INFO  c.alibaba.druid.pool.DruidDataSource - {dataSource-1} closed

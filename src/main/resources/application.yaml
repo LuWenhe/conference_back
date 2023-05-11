@@ -28,9 +28,9 @@ mybatis-plus:
     default-enum-type-handler: org.apache.ibatis.type.EnumOrdinalTypeHandler
     # 开启日志
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
-#image:
-#  url: http://localhost:8084
-#  directory: D:/Projects/ActualProjects/conference/image
 image:
-  url: http://www.icdske.com
-  directory: /home/conference/image
+  url: http://localhost:8084
+  directory: D:/Projects/ActualProjects/conference/image
+#image:
+#  url: http://www.icdske.com
+#  directory: /home/conference/image

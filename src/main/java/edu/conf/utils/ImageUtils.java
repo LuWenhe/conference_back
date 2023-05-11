@@ -1,13 +1,11 @@
 package edu.conf.utils;
 
-import edu.conf.entity.Image;
 import edu.conf.exception.HintException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.IOException;
-import java.lang.reflect.Field;
 import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
@@ -24,9 +22,10 @@ public class ImageUtils {
     private static final String FILE_PATH_SUFFIX = ".png";
 
     // 文件类型
-    private static final List<String> FILE_TYPE = Arrays.asList("jpeg", "png");
+    private static final List<String> FILE_TYPE = Arrays.asList("image/jpeg", "image/png");
 
-    public static String uploadImage(MultipartFile file, String imageDirectory, boolean isMarkdownImage) throws IOException, HintException {
+    public static String uploadImage(MultipartFile file, String imageDirectory, boolean isMarkdownImage)
+            throws IOException, HintException {
         // 判断上传文件是否是图片类型
         if (!FILE_TYPE.contains(file.getContentType())) {
             throw new HintException("上传的文件类型只能是:" + FILE_TYPE);
@@ -53,10 +52,10 @@ public class ImageUtils {
 
         // 如果文件不为空
         if (!file.isEmpty()) {
-            log.info("开始保存");
+            log.info("文件{}开始保存", fileName);
             // 保存文件
             file.transferTo(new File(fileDirectory, fileName + FILE_PATH_SUFFIX));
-            log.info("保存结束");
+            log.info("文件{}保存结束", fileName);
         } else {
             throw new NullPointerException("文件不能为空");
         }

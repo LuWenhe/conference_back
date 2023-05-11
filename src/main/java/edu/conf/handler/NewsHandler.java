@@ -74,8 +74,6 @@ public class NewsHandler {
     @PostMapping(value = "/addImage")
     public Result addImage(@RequestParam("image") MultipartFile pictureFile)
             throws IOException {
-        log.info("imageURL:{}", imageURL);
-        log.info("imageDirectory:{}", imageDirectory);
         NewsAddDTO newsAddDTO = new NewsAddDTO();
         newsAddDTO.setPictureFile(pictureFile);
         String picturePath = "";
